@@ -1,0 +1,34 @@
+[
+  {
+    "id": "berco-lateral-halo",
+    "name": "Berço lateral HALO BassiNest Swivel Sleeper 3.0",
+    "storeUrl": "https://www.target.com/p/halo-innovations-bassinest-swivel-sleeper-3-0-gray/-/A-83703603#lnk=sametab",
+    "image": "/images/berco-lateral-halo-bassinest.avif",
+    "selectionType": "limited",
+    "maxQuantity": 2
+  },
+  {
+    "id": "fraldas-newborn",
+    "name": "Fraldas descartáveis - Newborn",
+    "storeUrl": "https://www.target.com/p/millie-moon-luxury-diapers-select-size-and-count/-/A-82102549?preselect=90480843#lnk=sametab",
+    "image": "/images/fraldas-descartaveis-newborn.avif",
+    "selectionType": "stackable",
+    "maxQuantity": null
+  },
+  {
+    "id": "fraldas-size1",
+    "name": "Fraldas descartáveis - Size 1",
+    "storeUrl": "https://www.target.com/p/millie-moon-luxury-diapers-select-size-and-count/-/A-82102549?preselect=84648895#lnk=sametab",
+    "image": "/images/fraldas-descartaveis-size1.avif",
+    "selectionType": "stackable",
+    "maxQuantity": null
+  },
+  {
+    "id": "lencos-umedecidos",
+    "name": "Lenços umedecidos",
+    "storeUrl": "https://www.target.com/p/millie-moon-sensitive-wipes-select-count/-/A-82088222?preselect=81083767#lnk=sametab",
+    "image": "/images/lencos-umedecidos.avif",
+    "selectionType": "stackable",
+    "maxQuantity": null
+  }
+]
