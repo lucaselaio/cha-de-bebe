@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { giftItems } from "../lib/gifts";
 
 export default function HomePage() {
@@ -9,6 +9,8 @@ export default function HomePage() {
   const [pendingAction, setPendingAction] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
+  const [notice, setNotice] = useState(null);
+  const noticeTimerRef = useRef(null);
 
   useEffect(() => {
     async function loadSelections() {
@@ -24,6 +26,12 @@ export default function HomePage() {
     }
 
     loadSelections();
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (noticeTimerRef.current) clearTimeout(noticeTimerRef.current);
+    };
   }, []);
 
   const modalText = useMemo(() => {
@@ -42,6 +50,12 @@ export default function HomePage() {
       itemName: item.name,
       action,
     });
+  };
+
+  const showNotice = (message, type = "success") => {
+    setNotice({ message, type });
+    if (noticeTimerRef.current) clearTimeout(noticeTimerRef.current);
+    noticeTimerRef.current = setTimeout(() => setNotice(null), 3200);
   };
 
   const handleConfirm = async () => {
@@ -64,9 +78,12 @@ export default function HomePage() {
       }
 
       setSelectionById(data.selectionById ?? {});
+      if (pendingAction.action === "increment") {
+        showNotice("Obrigada(o)! Sua reserva foi registrada com sucesso.", "success");
+      }
       setPendingAction(null);
     } catch (error) {
-      alert(error.message || "Não foi possível concluir a ação.");
+      showNotice(error.message || "Não foi possível concluir a ação.", "error");
     } finally {
       setIsSaving(false);
     }
@@ -76,23 +93,19 @@ export default function HomePage() {
     <>
       <div className="wallpaper fixed inset-0 -z-10" aria-hidden="true" />
 
-      <header className="sticky top-0 z-20 border-b border-slate-300/80 bg-white/85 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Chá de bebê</p>
-            <h1 className="title-font text-2xl leading-none text-slate-700 sm:text-3xl">Felipe e Sara</h1>
+      <header className="sticky top-0 z-20 border-b border-base-300/70 bg-base-100/85 backdrop-blur">
+        <div className="navbar mx-auto w-full max-w-5xl px-2 sm:px-4">
+          <div className="navbar-start">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Chá de bebê</p>
+              <h1 className="title-font text-2xl leading-none text-slate-700 sm:text-3xl">Felipe e Sara</h1>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <a
-              href="#presentes"
-              className="rounded-full border border-slate-400/60 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition hover:bg-slate-50"
-            >
+          <div className="navbar-end gap-2">
+            <a href="#presentes" className="btn btn-sm rounded-full border-slate-300 bg-white text-slate-700 hover:bg-slate-50">
               Ver presentes
             </a>
-            <a
-              href="/selecionados"
-              className="rounded-full border border-slate-400/60 bg-slate-100 px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition hover:bg-slate-200"
-            >
+            <a href="/selecionados" className="btn btn-sm rounded-full border-slate-300 bg-slate-100 text-slate-700 hover:bg-slate-200">
               Itens selecionados
             </a>
           </div>
@@ -113,7 +126,9 @@ export default function HomePage() {
           <h3 className="title-font mb-4 text-2xl text-slate-700 sm:text-3xl">Sugestões de presentes</h3>
 
           {isLoading ? (
-            <p className="rounded-2xl border border-slate-300 bg-white/80 p-4 text-slate-600">Carregando status dos itens...</p>
+            <div className="alert border border-base-300 bg-base-100/90 text-base-content">
+              <span>Carregando status dos itens...</span>
+            </div>
           ) : (
             <div className="space-y-4">
               {giftItems.map((item) => {
@@ -129,43 +144,42 @@ export default function HomePage() {
                 const canDecrement = quantity > 0;
 
                 return (
-                  <article
-                    key={item.id}
-                    className="flex flex-col gap-4 rounded-2xl border border-slate-600/70 bg-white/85 p-4 shadow-sm backdrop-blur-sm sm:flex-row sm:items-center sm:p-5"
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      width={220}
-                      height={140}
-                      className="h-28 w-full rounded-xl border border-slate-300 object-cover sm:h-24 sm:w-36"
-                    />
+                  <article key={item.id} className="card card-side border border-slate-600/70 bg-white/85 shadow-sm backdrop-blur-sm max-sm:flex-col">
+                    <figure className="p-4 max-sm:pb-0">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        width={220}
+                        height={140}
+                        className="h-28 w-full rounded-xl border border-slate-300 object-cover sm:h-24 sm:w-36"
+                      />
+                    </figure>
 
-                    <div className="min-w-0 flex-1">
-                      <p className="title-font text-xl leading-tight text-slate-700 sm:text-2xl">{item.name}</p>
-                      <p className="mt-1 text-sm text-slate-600">
-                        {item.selectionType === "limited" && typeof item.maxQuantity === "number"
-                          ? `Selecionados até agora: ${quantity} de ${item.maxQuantity}`
-                          : `Selecionados até agora: ${quantity}`}
-                      </p>
-                    </div>
+                    <div className="card-body gap-3 p-4 sm:p-5">
+                      <div className="min-w-0 flex-1">
+                        <p className="title-font text-xl leading-tight text-slate-700 sm:text-2xl">{item.name}</p>
+                        <p className="mt-1 text-sm text-slate-600">
+                          {item.selectionType === "limited" && typeof item.maxQuantity === "number"
+                            ? `Selecionados até agora: ${quantity} de ${item.maxQuantity}`
+                            : `Selecionados até agora: ${quantity}`}
+                        </p>
+                      </div>
 
-                    <div className="flex flex-col gap-2 sm:items-end">
-                      <a
-                        href={item.storeUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center rounded-full border border-slate-400/70 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-50"
-                      >
-                        Ver na loja
-                      </a>
+                      <div className="card-actions justify-end gap-2">
+                        <a
+                          href={item.storeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-sm rounded-full border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
+                        >
+                          Ver na loja
+                        </a>
 
-                      <div className="flex flex-wrap justify-end gap-2">
                         <button
                           type="button"
                           onClick={() => handleAskConfirmation(item, "increment")}
                           disabled={!canIncrement}
-                          className="inline-flex items-center justify-center rounded-full border border-slate-500/70 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="btn btn-sm rounded-full border-slate-300 bg-white text-slate-700 hover:bg-slate-50 disabled:opacity-50"
                         >
                           Reservar 1 unidade
                         </button>
@@ -174,7 +188,7 @@ export default function HomePage() {
                           type="button"
                           onClick={() => handleAskConfirmation(item, "decrement")}
                           disabled={!canDecrement}
-                          className="inline-flex items-center justify-center rounded-full border border-slate-500/70 bg-slate-100 px-4 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="btn btn-sm rounded-full border-slate-300 bg-slate-100 text-slate-700 hover:bg-slate-200 disabled:opacity-50"
                         >
                           Remover 1 unidade
                         </button>
@@ -189,24 +203,17 @@ export default function HomePage() {
       </main>
 
       {pendingAction ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
-          <button
-            type="button"
-            aria-label="Fechar confirmação"
-            className="absolute inset-0 bg-slate-900/35"
-            onClick={() => (isSaving ? null : setPendingAction(null))}
-          />
-
-          <div className="relative w-full max-w-md rounded-2xl border border-slate-500/60 bg-white p-5 shadow-lg">
+        <div className="modal modal-open" role="dialog" aria-modal="true">
+          <div className="modal-box border border-slate-300 bg-white/95">
             <h4 className="title-font text-2xl text-slate-700">Confirmar ação</h4>
             <p className="mt-2 text-sm text-slate-600">{modalText}</p>
 
-            <div className="mt-4 flex justify-end gap-2">
+            <div className="modal-action mt-4">
               <button
                 type="button"
                 onClick={() => setPendingAction(null)}
                 disabled={isSaving}
-                className="rounded-full border border-slate-400/70 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-70"
+                className="btn rounded-full border-slate-300 bg-white text-slate-700 hover:bg-slate-100 disabled:opacity-70"
               >
                 Cancelar
               </button>
@@ -214,11 +221,27 @@ export default function HomePage() {
                 type="button"
                 onClick={handleConfirm}
                 disabled={isSaving}
-                className="rounded-full border border-slate-700 bg-slate-100 px-4 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-70"
+                className="btn rounded-full border-slate-400 bg-slate-100 text-slate-700 hover:bg-slate-200 disabled:opacity-70"
               >
                 {isSaving ? "Salvando..." : "Confirmar"}
               </button>
             </div>
+          </div>
+          <button
+            type="button"
+            aria-label="Fechar confirmação"
+            className="modal-backdrop"
+            onClick={() => (isSaving ? null : setPendingAction(null))}
+          >
+            fechar
+          </button>
+        </div>
+      ) : null}
+
+      {notice ? (
+        <div className="toast toast-top toast-end z-[80]">
+          <div className={`alert ${notice.type === "error" ? "alert-error" : "alert-success"}`}>
+            <span>{notice.message}</span>
           </div>
         </div>
       ) : null}

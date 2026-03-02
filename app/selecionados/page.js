@@ -26,18 +26,19 @@ export default async function SelecionadosPage() {
     <>
       <div className="wallpaper fixed inset-0 -z-10" aria-hidden="true" />
 
-      <header className="sticky top-0 z-20 border-b border-slate-300/80 bg-white/85 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Chá de bebê</p>
-            <h1 className="title-font text-2xl leading-none text-slate-700 sm:text-3xl">Itens selecionados</h1>
+      <header className="sticky top-0 z-20 border-b border-base-300/70 bg-base-100/85 backdrop-blur">
+        <div className="navbar mx-auto w-full max-w-5xl px-2 sm:px-4">
+          <div className="navbar-start">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Chá de bebê</p>
+              <h1 className="title-font text-2xl leading-none text-slate-700 sm:text-3xl">Itens selecionados</h1>
+            </div>
           </div>
-          <Link
-            href="/"
-            className="rounded-full border border-slate-400/60 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition hover:bg-slate-50"
-          >
-            Voltar para lista
-          </Link>
+          <div className="navbar-end">
+            <Link href="/" className="btn btn-sm rounded-full border-slate-300 bg-white text-slate-700 hover:bg-slate-50">
+              Voltar para lista
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -51,45 +52,48 @@ export default async function SelecionadosPage() {
 
         <section className="mt-8">
           {selectedItems.length === 0 ? (
-            <p className="rounded-2xl border border-slate-300 bg-white/80 p-4 text-slate-600">
-              Ainda não há itens selecionados.
-            </p>
+            <div className="alert border border-base-300 bg-base-100/90 text-base-content">
+              <span>Ainda não há itens selecionados.</span>
+            </div>
           ) : (
             <div className="space-y-4">
               {selectedItems.map((item) => (
-                <article
-                  key={item.id}
-                  className="flex flex-col gap-4 rounded-2xl border border-slate-600/70 bg-white/85 p-4 shadow-sm backdrop-blur-sm sm:flex-row sm:items-center sm:p-5"
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={220}
-                    height={140}
-                    className="h-28 w-full rounded-xl border border-slate-300 object-cover sm:h-24 sm:w-36"
-                  />
+                <article key={item.id} className="card card-side border border-slate-600/70 bg-white/85 shadow-sm backdrop-blur-sm max-sm:flex-col">
+                  <figure className="p-4 max-sm:pb-0">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      width={220}
+                      height={140}
+                      className="h-28 w-full rounded-xl border border-slate-300 object-cover sm:h-24 sm:w-36"
+                    />
+                  </figure>
 
-                  <div className="min-w-0 flex-1">
-                    <p className="title-font text-xl leading-tight text-slate-700 sm:text-2xl">{item.name}</p>
-                    <p className="mt-1 text-sm text-slate-600">
-                      Quantidade selecionada: {item.quantity}
-                      {item.selectionType === "limited" && typeof item.maxQuantity === "number"
-                        ? ` de ${item.maxQuantity}`
-                        : ""}
-                    </p>
-                    <p className="mt-1 text-sm text-slate-500">
-                      Atualizado em {new Date(item.updatedAt).toLocaleString("pt-BR")}
-                    </p>
+                  <div className="card-body gap-3 p-4 sm:p-5">
+                    <div className="min-w-0 flex-1">
+                      <p className="title-font text-xl leading-tight text-slate-700 sm:text-2xl">{item.name}</p>
+                      <p className="mt-1 text-sm text-slate-600">
+                        Quantidade selecionada: {item.quantity}
+                        {item.selectionType === "limited" && typeof item.maxQuantity === "number"
+                          ? ` de ${item.maxQuantity}`
+                          : ""}
+                      </p>
+                      <p className="mt-1 text-sm text-slate-500">
+                        Atualizado em {new Date(item.updatedAt).toLocaleString("pt-BR")}
+                      </p>
+                    </div>
+
+                    <div className="card-actions justify-end">
+                      <a
+                        href={item.storeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-sm rounded-full border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
+                      >
+                        Ver na loja
+                      </a>
+                    </div>
                   </div>
-
-                  <a
-                    href={item.storeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-slate-400/70 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-50"
-                  >
-                    Ver na loja
-                  </a>
                 </article>
               ))}
             </div>
