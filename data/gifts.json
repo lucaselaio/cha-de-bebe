@@ -3,7 +3,7 @@
     "id": "berco-lateral-halo",
     "name": "Berço lateral HALO BassiNest Swivel Sleeper 3.0",
     "storeUrl": "https://www.target.com/p/halo-innovations-bassinest-swivel-sleeper-3-0-gray/-/A-83703603#lnk=sametab",
-    "image": "/images/berco-lateral-halo-bassinest.avif",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_d18a0bed-142a-4813-b460-37d7bf5fcd0e?wid=1200&hei=1200&qlt=80",
     "selectionType": "limited",
     "maxQuantity": 2
   },
@@ -11,7 +11,7 @@
     "id": "fraldas-newborn",
     "name": "Fraldas descartáveis - Newborn",
     "storeUrl": "https://www.target.com/p/millie-moon-luxury-diapers-select-size-and-count/-/A-82102549?preselect=90480843#lnk=sametab",
-    "image": "/images/fraldas-descartaveis-newborn.avif",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_7ebfbd59-b305-4547-a1ac-5a84d43da549?wid=1200&hei=1200&qlt=80",
     "selectionType": "stackable",
     "maxQuantity": null
   },
@@ -19,7 +19,7 @@
     "id": "fraldas-size1",
     "name": "Fraldas descartáveis - Size 1",
     "storeUrl": "https://www.target.com/p/millie-moon-luxury-diapers-select-size-and-count/-/A-82102549?preselect=84648895#lnk=sametab",
-    "image": "/images/fraldas-descartaveis-size1.avif",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_8053b30f-252d-4989-8218-ad5628f0cd85?wid=1200&hei=1200&qlt=80",
     "selectionType": "stackable",
     "maxQuantity": null
   },
@@ -27,7 +27,7 @@
     "id": "lencos-umedecidos",
     "name": "Lenços umedecidos",
     "storeUrl": "https://www.target.com/p/millie-moon-sensitive-wipes-select-count/-/A-82088222?preselect=81083767#lnk=sametab",
-    "image": "/images/lencos-umedecidos.avif",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_e9a19347-1f72-4173-931a-9a0b02fde60e?wid=1200&hei=1200&qlt=80",
     "selectionType": "stackable",
     "maxQuantity": null
   }
