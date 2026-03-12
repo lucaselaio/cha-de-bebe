@@ -1,4 +1,7 @@
-import giftsData from "../data/gifts.json";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+
+const giftsFile = path.join(process.cwd(), "data", "gifts.json");
 
 function normalizeItem(item, index) {
   const selectionType =
@@ -9,6 +12,7 @@ function normalizeItem(item, index) {
       : item.selectionType === "limited"
         ? "limited"
         : "stackable";
+
   const maxQuantity =
     selectionType === "limited" && Number.isFinite(item.maxQuantity)
       ? Math.max(1, Math.floor(item.maxQuantity))
@@ -24,8 +28,18 @@ function normalizeItem(item, index) {
   };
 }
 
-export const giftItems = Array.isArray(giftsData)
-  ? giftsData.map((item, index) => normalizeItem(item, index))
-  : [];
+export async function readGiftItems() {
+  const raw = await readFile(giftsFile, "utf-8");
 
-export const giftItemsById = Object.fromEntries(giftItems.map((item) => [item.id, item]));
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed.map((item, index) => normalizeItem(item, index)) : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function readGiftItemsById() {
+  const giftItems = await readGiftItems();
+  return Object.fromEntries(giftItems.map((item) => [item.id, item]));
+}
