@@ -104,6 +104,9 @@ onMounted(async () => {
         <h3 class="event-strip__summary">
           {{ eventAddress }}
         </h3>
+        <h3 class="event-strip__summary">
+          Bethel Presbyterian Church (Salão de festas)
+        </h3>
       </div>
 
       <a

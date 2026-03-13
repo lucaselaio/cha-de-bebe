@@ -381,6 +381,7 @@ select {
   flex: 1 1 17rem;
   flex-direction: column;
   gap: 0.3rem;
+  align-items: center;
 }
 
 .event-strip__summary {
@@ -454,6 +455,8 @@ select {
 
 .event-strip__cta {
   flex: 0 0 auto;
+  right: 2rem;
+  margin-right: 7rem;
 }
 
 .section-card__header {
@@ -620,11 +623,19 @@ select {
     align-items: stretch;
   }
 
+  .event-strip__cta {
+    width: 100%;
+  }
+
   .app-header__inner {
     border-radius: 2rem;
   }
 
-  .app-header__nav,
+  .app-header__nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
   .section-card__header,
   .section-card__header--stack {
     justify-content: flex-start;
@@ -749,6 +760,8 @@ select {
 
   .app-header__nav {
     grid-template-columns: 1fr;
+    background: none;
+    border: none;
   }
 
   .soft-link {

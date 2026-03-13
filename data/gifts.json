@@ -240,6 +240,30 @@
     "maxQuantity": 1
   },
   {
+    "id": "tapete",
+    "name": "Tapete de atividades para bebês",
+    "storeUrl": "https://www.amazon.com/Foldable-Portable-Waterproof-Activity-PlayMats/dp/B0DCTCB7K8/ref=sr_1_6?dib=eyJ2IjoiMSJ9.4ozIE9wFS-fL56ufzHy6XoFZEDfnz4hcHoUik_1FSomeoSRg-jFfeuVxCFjjQnQZFCnWPHYgfTHGPs0QUyre9z5EoxjZtW4_qJATO1vaFJorvATyGb4UUiJ3jX1kE7wn3dw1um31Ykc4LH0bepz7xbXZmIGfs8p_DbIyufw731KcnOFu1DXZ4sIAJyYoxrhMlIWuW5jaMi-e4tbNj8LySYoZ-bsTp0PxWCW8mgrGJvSXGksOVyNSeag7_zAv5TKzonBmhTZy_JEt35tvrQW8x_KdTeArNw4WwgbQ9IKY9N4.RIR5LaazNAa8Ca5nTitkIW6R8Cza3LBiQk3HDDsmDA8&dib_tag=se&keywords=tummy%2Btime%2Bcarpet&qid=1773421974&sr=8-6&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/81bEJ0liQTL._SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "camera",
+    "name": "Babá eletrônica",
+    "storeUrl": "https://www.amazon.com/dp/B0D8W36XS9/ref=sspa_dk_rhf_search_pt_sub_4/?_encoding=UTF8&ie=UTF8&sp_csd=d2lkZ2V0TmFtZT1zcF9yaGZfc2VhcmNoX3BlcnNvbmFsaXplZA%3D%3D&pd_rd_w=QuDO6&content-id=amzn1.sym.ed82556b-5073-4521-a186-65fb40557bf5&pf_rd_p=ed82556b-5073-4521-a186-65fb40557bf5&pf_rd_r=588KCVFMDPRTW05BZRNQ&pd_rd_wg=30A6m&pd_rd_r=e40a6e12-42f0-488d-8c3e-63243fa3bcd7&ref_=sspa_dk_rhf_search_pt_sub&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/71vmiMXUlJL._AC_SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "monitor",
+    "name": "Monitor de bebê duplo para carro com câmera",
+    "storeUrl": "https://www.amazon.com/2-Kids-Baby-Camera-Dual-Monitor/dp/B0FNCB7GT9/ref=sr_1_1_sspa?crid=1WUGZEJ0UDHW5&dib=eyJ2IjoiMSJ9.jriAv7AaP7z1wEpjMkTXfPypNRrm_Ey3af1Duwclhu9l9qjI3HcBcS5v0vc4ajK02iSDhaidWFqOrFjF3TEYPORzjtoMAN32oxPMq4T_3o2YVukMnceUWwqD5x-77X1dukArkHMsQs2JvxO_ZZQCrVIVfYd7YGGtL33vaUMohnkr7kpHTr8OhaF8fpvXQVk-RPqUjXn_9v4Vz9Uj6MZT97EjCnZFRdgzBl9L5sUd8tqheX7R4YW9qeOyyzhvnDXqFrU3g98hCcGCm0Uf6KWBgSxVziAN57NbWq8U_rqwrO8.E0T4Nmtz2wFpR8kmY4TmgSdxVWy2jPvunOoRFf6yPTA&dib_tag=se&keywords=Video%2BBaby%2BMonitor%2Bfor%2Bcar&qid=1773422206&sprefix=video%2Bbaby%2Bmonitor%2Bfor%2Bca%2Caps%2C158&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/81J8fK044BL._AC_SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
     "id": "gift-card-amazon",
     "name": "Gift card Amazon",
     "storeUrl": "https://www.amazon.com/Amazon-eGift-Card-Logo-Animated/dp/B07PCMWTSG?pf_rd_p=9e067638-7091-4c9f-8439-c1fb89e0df0d&pf_rd_r=QH539NHJRR4TEHW2DFTB&ref_=US_GC_Top_P1_25_STND_B07PCMWTSG&th=1",
@@ -262,5 +286,45 @@
     "imageUrl": "https://i5.walmartimages.com/seo/Peanuts-Hugs-Fathers-Day-Walmart-Gift-Card_9c334368-ac09-4c9e-a74b-2f491eda2569.007a38d16d987e09dbeecc0ad97473ac.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF",
     "selectionType": "stackable",
     "maxQuantity": null
+  },
+  {
+    "id": "gift-card-carters",
+    "name": "Gift card carter's",
+    "storeUrl": "https://www.thegiftcardshop.com/carters-email?ddenom=50&SOLID=ORGANICSHOPPING&utm_source=google&utm_medium=cpc&utm_campaign=tgcs_pla_google_br_ZiftPMAX_x_us&utm_content=&campaignid=22031871336&utm_term=&device=c&SOLID=PAIDSHOPPINGBRANDS&gad_source=1&gad_campaignid=22038196946&gbraid=0AAAAABchTpFOlZqM9apDlLcH7XiOjJ4Ik&gclid=CjwKCAjw687NBhB4EiwAQ645djCJoyKzXrGTeQ5SfYzAd_yupFnz2s4s7Cm28aMZFVPR9e4wByQMhxoCrY0QAvD_BwE",
+    "imageUrl": "https://assets.incomm.com/product/799366887096/digital/asset_email_web/v1/en/digitalfile_a_img_prd_300_190/digitalfile_a_img_prd_300_190.png",
+    "selectionType": "stackable",
+    "maxQuantity": null
+  },
+  {
+    "id": "chaleira",
+    "name": "Chaleira elétrica",
+    "storeUrl": "https://www.amazon.com/OVENTE-Electric-Borosilicate-Boiling-Countertop/dp/B00DEQDEZA/ref=sr_1_18?crid=1VV98K5DH44KB&dib=eyJ2IjoiMSJ9.Zn3Ztsdh2H_fBtVDxnArSOMxv2ICRy0rxVjHuJrtnvbg-y2kUvDDiso5GiA02WGvRHXw5i3ld_fLG-Wx3nEz-YdC2AoG2ik1IVrEKboivUSN4WIMV59o7nIO3Nktuj48Iug_6p0u_J9DADDv2-cz2Eqv_iQSRlMX_Wo9Giepd_iKIJ7EoE_sCTHnCNi6pl0Lx9FOl9NHXdtx4i2HWCWjhhSmh8qSN_7XXnbNCKyaB468MrJgK9-nNFfXlcEMPrVNZlXHSym99cVSEgq93oB_sTWKQYr98glKHbic1HzdwR8.o-ifBfI-OMA_R5EZmpTRSqzyRVOvZm1WhOq4tVrqO50&dib_tag=se&keywords=electric%2Bkettle&qid=1773422580&sprefix=electric%2Bkettle%2Caps%2C190&sr=8-18&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/61dPUwzIudL._AC_SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "colchao",
+    "name": "Colchão para berço",
+    "storeUrl": "https://www.amazon.com/Perfect-Slumber-Recycled-Toddler-Mattress/dp/B08KRD7LNX/ref=pd_sbs_d_sccl_1_4/142-0390775-4062065?pd_rd_w=4y275&content-id=amzn1.sym.aa738fbd-ad05-4d11-aae2-04b598db6305&pf_rd_p=aa738fbd-ad05-4d11-aae2-04b598db6305&pf_rd_r=GKV8K42D23C7CQS61GHP&pd_rd_wg=E3TK3&pd_rd_r=86f4ff6e-b8d3-4adb-a090-5bfd9ef76eb0&pd_rd_i=B08KRD7LNX&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/81sKjTolY6L._AC_SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "esterilizador-2",
+    "name": "Esterilizador de chupeta portátil",
+    "storeUrl": "https://www.amazon.com/GROWNSY-Pacifier-Sanitizer-Sanitizing-Sanitized/dp/B086N12CYZ/ref=sr_1_8?crid=OHEKFEZ20UXO&dib=eyJ2IjoiMSJ9.zDm1oPHO-eVcQfgSeZcQjWkqC3WgDY2shWrFGRkXhP7mdGtrsBi02NYFJXxbu4RZ-NXuH0DkQz2F8_MEjw04kJjhU2Z2v6zUjQ2JaAvIqTVMx0vi9BY31rynxAT0YnjIv7-8d753lEjXTf2MBTjcjbuCl5Kwb-rnFx3jh54OSfrm-Wn_rizrZvLLJ0AWLwzqSVmR_I7_YZn1rC2GiYiAoh254o_LZH5jo5PDyhfFXXTaFQ_hiwAiltvHRkLm1PuJhhFmLowiLzaJLQEvGxLH86ev3fXubUaIbujSd6YuIK4.UwwwNGigisJ7HtExVN5frshgVP97kt_22QevIpcv5rs&dib_tag=se&keywords=pacifiers%2Besterilizador&qid=1773423046&s=baby-products&sprefix=passifiers%2Bsterelixador%2B%2Cbaby-products%2C158&sr=1-8&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/51SOXAFIl4L._AC_SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "mantas",
+    "name": "Mantas de algodão",
+    "storeUrl": "https://www.amazon.com/CIVARUA-KIDS-Breathable-Receiving-Essentials/dp/B0FNQS31SJ/ref=sr_1_3_sspa?crid=T0OZOX2VWIAB&dib=eyJ2IjoiMSJ9.wceyX0oAd8fegBp57bKnytWsGGoV7sPFNvTBJZkN2IDcse-PUYmleVtY0dW4DadVQfgIuqlVZtnTN_t7l_HJrlZ3gAC1k70R635qspIdLYVNL_2ylhTFgqz-8Xnor2GGGgAPHcRO7BS82Bj3nBMIulzQRETuWinopN9UsJ_4nMvfjL9GeR59awWQOhRNbokEgfzKbFMtT6RvCXYA4s8J5vkWffzOMeDb8B6kc3bU2UlxDcv6Pg5Zyqd3Oivqcu_1x4YeeFaqJHFrcWtC_-gTZr1gLRicwMTZIx7xtVybqig.WFxJk7djeHJ9Zd_VLiRvM9uIfjRpvTOQuXe6IJDavII&dib_tag=se&keywords=Muslin%2BBaby%2BCloth&qid=1773423417&s=baby-products&sprefix=muslin%2Bbaby%2Bcloth%2Cbaby-products%2C195&sr=1-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/81qvuK+7nKL._AC_SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 2
   }
 ]
