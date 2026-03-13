@@ -1,33 +1,265 @@
 [
   {
-    "id": "berco-lateral-halo",
-    "name": "Berço lateral HALO BassiNest Swivel Sleeper 3.0",
-    "storeUrl": "https://www.target.com/p/halo-innovations-bassinest-swivel-sleeper-3-0-gray/-/A-83703603#lnk=sametab",
-    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_d18a0bed-142a-4813-b460-37d7bf5fcd0e?wid=1200&hei=1200&qlt=80",
+    "id": "berco-lateral-fodos",
+    "name": "Berço lateral Fodoss",
+    "storeUrl": "Amazon.com: Fodoss Baby Bassinets Bedside Sleeper - All Mesh Bedside Bassinet with Wheels, 7 Height Adjustable Baby Bassinet for Infants, Beigecp_ud_lstpd_SM7VP2MB9H809HRS8AY4",
+    "imageUrl": "https://m.media-amazon.com/images/I/81NEdBTgnDL._AC_SL1500_.jpg",
     "selectionType": "limited",
     "maxQuantity": 2
   },
   {
     "id": "fraldas-newborn",
     "name": "Fraldas descartáveis - Newborn",
-    "storeUrl": "https://www.target.com/p/millie-moon-luxury-diapers-select-size-and-count/-/A-82102549?preselect=90480843#lnk=sametab",
-    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_7ebfbd59-b305-4547-a1ac-5a84d43da549?wid=1200&hei=1200&qlt=80",
+    "storeUrl": "https://www.target.com/p/huggies-little-snugglers-baby-diapers-select-size-and-count/-/A-15262599?preselect=79633179#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_ce80e2f1-5c47-4bb6-ad11-bc9ef0e393f0?wid=1200&hei=1200&qlt=80",
     "selectionType": "stackable",
     "maxQuantity": null
   },
   {
     "id": "fraldas-size1",
     "name": "Fraldas descartáveis - Size 1",
-    "storeUrl": "https://www.target.com/p/millie-moon-luxury-diapers-select-size-and-count/-/A-82102549?preselect=84648895#lnk=sametab",
-    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_8053b30f-252d-4989-8218-ad5628f0cd85?wid=1200&hei=1200&qlt=80",
+    "storeUrl": "https://www.target.com/p/huggies-little-snugglers-baby-diapers-select-size-and-count/-/A-15262599?preselect=94399849#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_74397b37-c3d3-415b-8096-0f225e798383?wid=1200&hei=1200&qlt=80",
     "selectionType": "stackable",
     "maxQuantity": null
   },
   {
-    "id": "lencos-umedecidos",
-    "name": "Lenços umedecidos",
+    "id": "fraldas-size-2",
+    "name": "Fraldas descartáveis - Size 2",
+    "storeUrl": "https://www.target.com/p/huggies-little-snugglers-baby-diapers-select-size-and-count/-/A-15262599?preselect=94399853#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_e7fb871d-6629-475d-8e1c-4f73f8702ed4?wid=1200&hei=1200&qlt=80",
+    "selectionType": "stackable",
+    "maxQuantity": null
+  },
+  {
+    "id": "fraldas-size-3",
+    "name": "Fraldas descartáveis - Size 3",
+    "storeUrl": "https://www.target.com/p/huggies-little-movers-baby-disposable-diapers-select-size-and-count/-/A-82984217?preselect=84822113#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_785315d8-1950-4b78-a3e6-7b459741b100?wid=1200&hei=1200&qlt=80",
+    "selectionType": "stackable",
+    "maxQuantity": null
+  },
+  {
+    "id": "lencos-umedecidos-millie-moon",
+    "name": "Lenços umedecidos Millie Moon",
     "storeUrl": "https://www.target.com/p/millie-moon-sensitive-wipes-select-count/-/A-82088222?preselect=81083767#lnk=sametab",
     "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_e9a19347-1f72-4173-931a-9a0b02fde60e?wid=1200&hei=1200&qlt=80",
+    "selectionType": "stackable",
+    "maxQuantity": null
+  },
+  {
+    "id": "lencos-umedecidos-pampers-aqua",
+    "name": "Lenços umedecidos Pampers aqua",
+    "storeUrl": "https://www.target.com/p/pampers-aqua-pure-sensitive-baby-wipes-select-count/-/A-54300172?preselect=90470670#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_3126fc40-4f16-4dc9-9f2c-ee877497cef0?wid=1200&hei=1200&qlt=80",
+    "selectionType": "stackable",
+    "maxQuantity": null
+  },
+  {
+    "id": "ruido-branco",
+    "name": "Caixinha de ruido branco",
+    "storeUrl": "https://www.target.com/p/momcozy-dreamsync-sound-machine/-/A-94581668?regMode=REGST&registryId=fa513280-d692-11f0-b946-b5dfca8ca6e0&lnk=reg_items_view&pageFrom=myitems&backLinkUrl=%2Fgift-registry%2Fmy-registry%3FregistryType%3DBABY%26type%3DBABY%26registryId%3Dfa513280-d692-11f0-b946-b5dfca8ca6e0%26lnk%3Dreg_mode_plp&backLinkName=my+registry&registryTitle=Lucas+%26+Larissa%27s+Baby+Registry&reg_type=baby&registryType=baby&itemLineNum=3229e1e0-075b-11f1-9c77-298923091a6d",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_4359c410-b710-4e3e-856c-e58b8808e75d?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "babador-masculino",
+    "name": "Kit Babadores - Masculino",
+    "storeUrl": "https://www.target.com/p/silicone-bibs-2pk-animals-cresents-cloud-island-8482/-/A-89594982#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_9901afc6-c28c-437c-925d-1540c753d0cd?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 2
+  },
+  {
+    "id": "babador-feminino",
+    "name": "Kit Babadores - Feminino",
+    "storeUrl": "https://www.target.com/p/loulou-lollipop-printed-silicone-bib-rainbow/-/A-83727281#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_97561be8-3649-4f3c-bb47-a10872838a89?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 2
+  },
+  {
+    "id": "kit-berco-menina",
+    "name": "Kit de berço menina animais marinhos",
+    "storeUrl": "https://a.co/d/09l6VtcQ",
+    "imageUrl": "https://m.media-amazon.com/images/I/813DxK6qu-L._AC_SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "kit-berco-menino",
+    "name": "Kit de berço menino dinossauro",
+    "storeUrl": "https://a.co/d/03rpET27",
+    "imageUrl": "https://m.media-amazon.com/images/I/81-G9o7Rs9L._AC_SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "esterilizador",
+    "name": "Esterilizador de mamadeira",
+    "storeUrl": "https://www.target.com/p/dr-brown-39-s-all-in-one-sterilizer-38-dryer-for-baby-bottles-and-newborn-essentials/-/A-83848877?regMode=REGST&registryId=fa513280-d692-11f0-b946-b5dfca8ca6e0&lnk=reg_items_view&pageFrom=myitems&backLinkUrl=%2Fgift-registry%2Fmy-registry%3FregistryType%3DBABY%26type%3DBABY%26registryId%3Dfa513280-d692-11f0-b946-b5dfca8ca6e0%26lnk%3Dreg_mode_plp&backLinkName=my+registry&registryTitle=Lucas+%26+Larissa%27s+Baby+Registry&reg_type=baby&registryType=baby&itemLineNum=f0827230-d694-11f0-9859-211c47d95cc4",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_ead0d883-9d8c-4007-a4a5-23611083de8e?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "mamadeira-lansinoh",
+    "name": "Mamadeira Lansinoh",
+    "storeUrl": "https://www.target.com/p/lansinoh-anti-colic-baby-bottles-for-breastfeeding-babies-formula-feeding-breast-milk-storage-3pk/-/A-95248711?preselect=14009929#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_b832ddae-3fe2-4f29-bbc1-1d8f1ef57953?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "mamadeira-glass-phillips",
+    "name": "Mamadeira Glass Phillips",
+    "storeUrl": "https://www.target.com/p/philips-avent-3pk-glass-natural-baby-bottle-with-natural-response-nipple-clear-8oz/-/A-83273607",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_38f3a6b6-c4bb-4ff7-98e3-ce5efc5b3f55?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "carrinho",
+    "name": "Carrinho de passeio",
+    "storeUrl": "https://www.target.com/p/double-stroller-for-infant-and-toddler-reversible-tandem-stroller-with-one-hand-fold-5-point-harness-adjustable-canopy-multi-modes-lightweight/-/A-1008358872?preselect=1008358873#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_ad4caa2a-c496-4831-93a2-c62bcb2c79ed?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "tapete-divertido",
+    "name": "Tapete Divertido",
+    "storeUrl": "https://www.target.com/p/baby-einstein-4-in-1-kickin-39-tunes-music-and-language-discovery-play-gym/-/A-75648682",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_d72fd412-3de9-4604-b93e-480cac9ad2ec?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 2
+  },
+  {
+    "id": "baby-swing",
+    "name": "Balanço de Bebe",
+    "storeUrl": "https://www.walmart.com/ip/Baby-Swing-for-Infant-Electric-Bluetooth-Music-Bouncer-Rocker-with-5-Sway-Modes-3-Timing-Gray/628953277?sid=2d6bc87e-00af-40bf-9996-659892882d06",
+    "imageUrl": "https://i5.walmartimages.com/seo/Baby-Swing-for-Infant-Electric-Bluetooth-Music-Bouncer-Rocker-with-5-Sway-Modes-3-Timing-Dark-Grey_fed0b31a-1d3f-4350-a29e-76f8ba689751.6f826551c9ee786cc7e9958f143a1f39.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF",
+    "selectionType": "limited",
+    "maxQuantity": 2
+  },
+  {
+    "id": "almofada-amamentacao",
+    "name": "Almofada amamentação",
+    "storeUrl": "https://www.amazon.com/My-Brest-Friend-Supportive-Plus-Size/dp/B00PC3KVYA/ref=sr_1_6?crid=1Y7FH4G9DF1HT&dib=eyJ2IjoiMSJ9.HpO9Yro9aRxeFaCY4IsIrVpxjIiuWi7kdSb71mCw_RE4ci1ZFfMp7f3NANzHM7JF35FYml-z_77Tn4mrFS40CUfnMQHjcwljNsA1bcyvRveyKMdIfRbKSkRuSFPHlpIyz8iQpyET9ppDk85f83en2Hp9RU3aTWsqIW48-nKfiygP10OOa8bCmWoHWO7D8vaIJ_Rfrxi7cNICt9k1g4Gbqo2qcAlO4puym6yMIX0-yPccA1XqA6vJ98afTkH7L_lfFaF0DzwF1VJLIspocTLsqJlGnSNQJxDUjXyQ9t_MFhg.q9a6AlLBxL78basnknA7OCI-2AYTPlzPsDHOU23TCWU&dib_tag=se&keywords=nursing%2Bpillow%2Bfor%2Btwins&qid=1773347043&sprefix=nursing%2Bpillow%2Bfor%2B%2Caps%2C202&sr=8-6&ufe=app_do%3Aamzn1.fos.eb91fd35-4c45-4c9f-a111-ade04bd48261&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/91judEH8NWL._SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "almofada-descanso",
+    "name": "Almofada de descanso",
+    "storeUrl": "https://www.amazon.com/Twin-Pillow-cuddle-cover-Travel/dp/B01MYF2V2O/ref=sr_1_7?crid=1Y7FH4G9DF1HT&dib=eyJ2IjoiMSJ9.HpO9Yro9aRxeFaCY4IsIrVpxjIiuWi7kdSb71mCw_RE4ci1ZFfMp7f3NANzHM7JF35FYml-z_77Tn4mrFS40CUfnMQHjcwljNsA1bcyvRveyKMdIfRbKSkRuSFPHlpIyz8iQpyET9ppDk85f83en2Hp9RU3aTWsqIW48-nKfiygP10OOa8bCmWoHWO7D8vaIJ_Rfrxi7cNICt9k1g4Gbqo2qcAlO4puym6yMIX0-yPccA1XqA6vJ98afTkH7L_lfFaF0DzwF1VJLIspocTLsqJlGnSNQJxDUjXyQ9t_MFhg.q9a6AlLBxL78basnknA7OCI-2AYTPlzPsDHOU23TCWU&dib_tag=se&keywords=nursing+pillow+for+twins&qid=1773347043&sprefix=nursing+pillow+for+%2Caps%2C202&sr=8-7",
+    "imageUrl": "https://m.media-amazon.com/images/I/61pV+F-PVhL._SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "swadle-boy",
+    "name": "Saco de dormir boy",
+    "storeUrl": "https://www.target.com/p/halo-innovations-supersoft-rayon-from-bamboo-sleepsack-wearable-blanket/-/A-91379766?preselect=90578222#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_61180cda-8454-40ba-b0a9-0741406dc956?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "swadle-girl",
+    "name": "Saco de dormir Girl",
+    "storeUrl": "https://www.target.com/p/halo-innovations-supersoft-rayon-from-bamboo-sleepsack-wearable-blanket/-/A-91379766?preselect=94728071#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_48b4e9dd-2eef-489a-b05a-f74fd6e3432a?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "banho",
+    "name": "Kit de banho",
+    "storeUrl": "https://www.amazon.com/Mustela-Newborn-Arrival-Bathtime-Essentials/dp/B01NA7ZMIA/ref=sr_1_1?crid=1BME6U3BQNP6D&dib=eyJ2IjoiMSJ9.ytmx_zFB2_xQvoa1DamIez4hxRflj43P8tqKdCDlH2TmclryBjkvFSMV3RJFiAV6f5iQ-JxtQEY9atWKXWyI5K5623CUKHDv4UuO6e97M3XfPzNH1TY96GeM9OaNoGB9ZuKi1VgE957fHP-2Ekqy9ObLo7A7Oohzd4-_VHjglofNxC2lBKwH7l79TYHcg1qO-ANgLeqBpQqeD44j3ONTMReMDvesfOn9c3QWi5GObqngWWYEY5WfFXxjxmTvGt4PgfoNqutxg4Wg_uDwdqUUNuvM5LaPHMaR7D6_rBLYPvQ.8I-QctkIhsR6y6dWI5C--IvUfHmOuKyE8Ld2WCmStuo&dib_tag=se&keywords=kit+de+banho+mustela&qid=1773347814&sprefix=kit+de+banho+mustela+%2Caps%2C151&sr=8-1",
+    "imageUrl": "https://m.media-amazon.com/images/I/71XfzUEDkgL._SX522_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "cercadinho",
+    "name": "Cercado compacto para bebês",
+    "storeUrl": "https://www.amazon.com/ZEEBABA-Playpen-47x47inch-Toddlers-Toddler/dp/B0BCVRHFX8?th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/81ZGF4v6CwL._SX679_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "lencol-menino",
+    "name": "Jogo de lençol para berço menino",
+    "storeUrl": "https://www.amazon.com/gp/product/B0C7CJFNBW/ref=ewc_pr_img_1?smid=AE4OFB25HZ7NZ&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/61nHBNsEjWL._SL1024_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "lencol-menina",
+    "name": "Jogo de lençol para berço menina",
+    "storeUrl": "https://www.amazon.com/gp/product/B0CG8MW9M5/ref=ewc_pr_img_1?th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/81NJ+vOkixL._SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "bolsa-maternidade-1",
+    "name": "Bolsa maternidade",
+    "storeUrl": "https://www.target.com/p/boxy-diaper-backpack-cloud-island/-/A-94436166?preselect=93302868#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_ad020509-d3cf-4502-aaea-593e00fe37ff?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "bolsa-maternidade-2",
+    "name": "Bolsa maternidade",
+    "storeUrl": "https://www.target.com/p/boxy-diaper-backpack-cloud-island/-/A-94436166?preselect=94736062#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_6ecaa806-f5fa-4297-b531-81f4ee25d580?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "purificador",
+    "name": "Purificador de Ar",
+    "storeUrl": "https://www.target.com/p/levoit-core-200s-smart-air-purifier-gray-1-year-warranty-4-settings-etl-38-carb-certified-energy-star-100-300-sq-ft/-/A-82174242#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_fa0840b7-4af4-4aa5-a6fb-17afecb62127?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "humidificador",
+    "name": "Humidificador de ar",
+    "storeUrl": "https://www.target.com/p/levoit-classic-300s-ultrasonic-smart-humidifier-white/-/A-88764397#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_c6caa5d2-8184-4f97-80c4-a3a6ef5210a3?wid=1200&hei=1200&qlt=80",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "gift-card-amazon",
+    "name": "Gift card Amazon",
+    "storeUrl": "https://www.amazon.com/Amazon-eGift-Card-Logo-Animated/dp/B07PCMWTSG?pf_rd_p=9e067638-7091-4c9f-8439-c1fb89e0df0d&pf_rd_r=QH539NHJRR4TEHW2DFTB&ref_=US_GC_Top_P1_25_STND_B07PCMWTSG&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/31x451MtRuL._SX522_.jpg",
+    "selectionType": "stackable",
+    "maxQuantity": null
+  },
+  {
+    "id": "gift-card-target",
+    "name": "Gift card Target",
+    "storeUrl": "https://www.target.com/p/bullseye-trio-target-giftcard/-/A-54630202?preselect=81480868#lnk=sametab",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_acad8cac-d94d-4395-a604-97a481929b4e?wid=1200&hei=1200&qlt=80",
+    "selectionType": "stackable",
+    "maxQuantity": null
+  },
+  {
+    "id": "gift-card-walmart",
+    "name": "Gift card walmart",
+    "storeUrl": "https://www.walmart.com/ip/Peanuts-Hugs-Fathers-Day-Walmart-Gift-Card/5258440757?classType=REGULAR&from=/search",
+    "imageUrl": "https://i5.walmartimages.com/seo/Peanuts-Hugs-Fathers-Day-Walmart-Gift-Card_9c334368-ac09-4c9e-a74b-2f491eda2569.007a38d16d987e09dbeecc0ad97473ac.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF",
     "selectionType": "stackable",
     "maxQuantity": null
   }

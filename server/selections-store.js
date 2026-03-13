@@ -54,8 +54,7 @@ export async function readSelections() {
   const raw = await readFile(dataFile, "utf-8");
 
   try {
-    const parsed = JSON.parse(raw);
-    return normalizeSelections(parsed);
+    return normalizeSelections(JSON.parse(raw));
   } catch {
     return {};
   }
