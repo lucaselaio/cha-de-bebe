@@ -312,22 +312,30 @@ select {
 }
 
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.8rem;
 }
 
 .stat-pill {
-  display: grid;
-  gap: 0.3rem;
-  padding: 0.95rem 1rem;
+  position: relative;
+  min-width: 0;
+  display: flex;
+  flex: 1 1 14rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1.15rem 1rem 0.95rem;
   border-radius: 1.2rem;
   background: rgba(248, 247, 243, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.8);
   box-shadow: var(--shadow-card);
+  text-align: center;
 }
 
 .stat-pill__icon {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -339,8 +347,18 @@ select {
   font-size: 0.9rem;
 }
 
+.stat-pill__content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding-top: 0.65rem;
+}
+
 .stat-pill__value {
-  font-size: 1.4rem;
+  font-size: 1.32rem;
   font-weight: 900;
   color: var(--p-surface-900);
 }
@@ -663,7 +681,7 @@ select {
   }
 
   .stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
   }
 }
 
@@ -741,7 +759,7 @@ select {
   }
 
   .stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
   }
 
   .hero-panel h1 {
@@ -783,7 +801,8 @@ select {
   }
 
   .stat-pill {
-    padding: 0.9rem;
+    flex-basis: calc(50% - 0.7rem);
+    padding: 1.05rem 0.85rem 0.9rem;
   }
 
   .gift-card__heading h3 {

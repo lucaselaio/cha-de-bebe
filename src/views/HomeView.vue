@@ -18,7 +18,7 @@ const eventMapUrl =
 const eventSummary = `${eventDate} às ${eventTime}`;
 
 const toast = useToast();
-const { giftItems, selectedItems, totalItems, totalSelectedTypes, totalSelectedUnits, isLoading, loadRegistry, mutateSelection, getSelection } =
+const { giftItems, totalItems, totalSelectedTypes, totalSelectedUnits, isLoading, loadRegistry, mutateSelection, getSelection } =
   useRegistry();
 
 const pendingAction = ref(null);
@@ -176,11 +176,6 @@ onMounted(async () => {
         icon="pi pi-box"
         :value="totalSelectedUnits"
         label="unidades reservadas"
-      />
-      <StatPill
-        icon="pi pi-sparkles"
-        :value="selectedItems.length"
-        label="mimos em andamento"
       />
     </section>
 

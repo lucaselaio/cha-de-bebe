@@ -23,7 +23,10 @@ defineProps({
     >
       <i :class="icon" />
     </span>
-    <strong class="stat-pill__value">{{ value }}</strong>
-    <span class="stat-pill__label">{{ label }}</span>
+
+    <div class="stat-pill__content">
+      <strong class="stat-pill__value">{{ value }}</strong>
+      <span class="stat-pill__label">{{ label }}</span>
+    </div>
   </article>
 </template>
