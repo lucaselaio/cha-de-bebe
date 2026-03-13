@@ -415,7 +415,7 @@ select {
 
 .gift-card__media img {
   width: 100%;
-  min-height: 16rem;
+  /* min-height: 10rem; */
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 1rem;
@@ -596,6 +596,7 @@ select {
 
   .gift-card__media img {
     aspect-ratio: 16 / 10;
+    min-height: 16rem;
   }
 
   .gift-card__actions {

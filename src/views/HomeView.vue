@@ -11,7 +11,6 @@ import { useRegistry } from "@/composables/useRegistry";
 import Image from "primevue/image";
 
 const toast = useToast();
-const test = ref("teste");
 const { giftItems, selectedItems, totalItems, totalSelectedTypes, totalSelectedUnits, isLoading, loadRegistry, mutateSelection, getSelection } =
   useRegistry();
 
@@ -89,9 +88,6 @@ onMounted(async () => {
 
 <template>
   <div class="page-stack">
-    <p class="d-none">
-      {{ test }}
-    </p>
     <section class="hero-panel">
       <div class="hero-panel__copy">
         <span class="hero-panel__eyebrow">Chá de bebê dos gêmeos</span>
