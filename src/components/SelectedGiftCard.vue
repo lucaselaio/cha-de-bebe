@@ -22,10 +22,19 @@ function formatDate(value) {
   <article class="gift-card gift-card--selected">
     <div class="gift-card__media">
       <img
+        v-if="item.image"
         :src="item.image"
         :alt="item.name"
         loading="lazy"
       >
+      <div
+        v-else
+        class="gift-card__image-fallback"
+        aria-hidden="true"
+      >
+        <i class="pi pi-image" />
+        <span>Imagem em breve</span>
+      </div>
       <Tag
         value="Já reservado"
         severity="info"

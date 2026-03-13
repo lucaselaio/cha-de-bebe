@@ -40,10 +40,19 @@ const progressValue = computed(() => {
   <article class="gift-card">
     <div class="gift-card__media">
       <img
+        v-if="item.image"
         :src="item.image"
         :alt="item.name"
         loading="lazy"
       >
+      <div
+        v-else
+        class="gift-card__image-fallback"
+        aria-hidden="true"
+      >
+        <i class="pi pi-image" />
+        <span>Imagem em breve</span>
+      </div>
       <Tag
         :value="isLimited ? 'Quantidade limitada' : 'Pode repetir'"
         :severity="isLimited ? 'warn' : 'success'"

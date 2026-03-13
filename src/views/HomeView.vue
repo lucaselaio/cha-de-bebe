@@ -114,12 +114,6 @@ onMounted(async () => {
         class="hero-panel__art"
         aria-hidden="true"
       >
-        <div class="hero-cloud hero-cloud--top">
-          <span>2 bebês</span>
-        </div>
-        <div class="hero-cloud hero-cloud--bottom">
-          <span>muito amor</span>
-        </div>
         <div class="hero-panel__moon" />
       </div>
     </section>
