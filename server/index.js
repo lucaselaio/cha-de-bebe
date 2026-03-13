@@ -1,12 +1,13 @@
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readGiftItems, readGiftItemsById } from "./gifts-store.js";
+import { readGiftItemsById } from "./gifts-store.js";
 import {
   decrementItemSelection,
   incrementItemSelection,
   readSelections,
 } from "./selections-store.js";
+import { buildRegistryResponse } from "./registry-response.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -14,55 +15,9 @@ const port = Number(process.env.PORT || (process.env.NODE_ENV === "production" ?
 
 app.use(express.json());
 
-function sortByUpdatedAtDesc(items) {
-  return [...items].sort((a, b) => {
-    const first = a.updatedAt ? new Date(a.updatedAt).getTime() : 0;
-    const second = b.updatedAt ? new Date(b.updatedAt).getTime() : 0;
-    return second - first;
-  });
-}
-
-async function buildResponse(selections) {
-  const giftItems = await readGiftItems();
-  const selectionById = {};
-  const selectedItems = [];
-
-  for (const item of giftItems) {
-    const quantity = selections[item.id]?.quantity ?? 0;
-    const isAtLimit =
-      item.selectionType === "limited" &&
-      typeof item.maxQuantity === "number" &&
-      quantity >= item.maxQuantity;
-
-    selectionById[item.id] = {
-      quantity,
-      maxQuantity: item.maxQuantity,
-      selectionType: item.selectionType,
-      isAtLimit,
-    };
-
-    if (quantity > 0) {
-      selectedItems.push({
-        ...item,
-        quantity,
-        updatedAt: selections[item.id]?.updatedAt ?? null,
-      });
-    }
-  }
-
-  return {
-    giftItems,
-    selectionById,
-    selectedItems: sortByUpdatedAtDesc(selectedItems),
-    totalSelectedUnits: selectedItems.reduce((sum, item) => sum + item.quantity, 0),
-    totalSelectedTypes: selectedItems.length,
-    totalItems: giftItems.length,
-  };
-}
-
 app.get("/api/selections", async (_request, response) => {
   const selections = await readSelections();
-  response.json(await buildResponse(selections));
+  response.json(await buildRegistryResponse(selections));
 });
 
 app.post("/api/selections", async (request, response) => {
@@ -88,7 +43,7 @@ app.post("/api/selections", async (request, response) => {
   }
 
   const selections = await incrementItemSelection(itemId);
-  return response.json(await buildResponse(selections));
+  return response.json(await buildRegistryResponse(selections));
 });
 
 app.delete("/api/selections", async (request, response) => {
@@ -109,7 +64,7 @@ app.delete("/api/selections", async (request, response) => {
   }
 
   const selections = await decrementItemSelection(itemId);
-  return response.json(await buildResponse(selections));
+  return response.json(await buildRegistryResponse(selections));
 });
 
 if (process.env.NODE_ENV === "production") {

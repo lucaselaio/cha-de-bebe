@@ -3,6 +3,15 @@ import path from "node:path";
 
 const dataDir = path.join(process.cwd(), "data");
 const dataFile = path.join(dataDir, "selections.json");
+const isVercelRuntime = process.env.VERCEL === "1";
+
+function getMemoryStore() {
+  if (!globalThis.__CHA_DE_BEBE_SELECTIONS__) {
+    globalThis.__CHA_DE_BEBE_SELECTIONS__ = {};
+  }
+
+  return globalThis.__CHA_DE_BEBE_SELECTIONS__;
+}
 
 async function ensureStoreExists() {
   await mkdir(dataDir, { recursive: true });
@@ -50,6 +59,22 @@ function normalizeSelections(raw) {
 }
 
 export async function readSelections() {
+  if (isVercelRuntime) {
+    try {
+      const raw = await readFile(dataFile, "utf-8");
+      const parsed = normalizeSelections(JSON.parse(raw));
+      const memoryStore = getMemoryStore();
+
+      if (Object.keys(memoryStore).length === 0) {
+        Object.assign(memoryStore, parsed);
+      }
+
+      return structuredClone(memoryStore);
+    } catch {
+      return structuredClone(getMemoryStore());
+    }
+  }
+
   await ensureStoreExists();
   const raw = await readFile(dataFile, "utf-8");
 
@@ -61,6 +86,11 @@ export async function readSelections() {
 }
 
 async function writeSelections(selections) {
+  if (isVercelRuntime) {
+    globalThis.__CHA_DE_BEBE_SELECTIONS__ = structuredClone(selections);
+    return;
+  }
+
   await ensureStoreExists();
   await writeFile(dataFile, `${JSON.stringify(selections, null, 2)}\n`, "utf-8");
 }
