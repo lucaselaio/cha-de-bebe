@@ -302,19 +302,13 @@ select {
 .hero-panel__art {
   position: relative;
   min-height: 14rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.hero-panel__moon {
-  position: absolute;
-  right: 1rem;
-  top: 0.75rem;
-  width: 9rem;
-  height: 9rem;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 36% 30%, rgba(255, 255, 255, 0.97), rgba(225, 237, 246, 0.92) 58%),
-    linear-gradient(180deg, rgba(92, 186, 244, 0.9), rgba(70, 169, 240, 0.9));
-  box-shadow: inset -18px -18px 0 rgba(255, 220, 238, 0.847);
+.hero-panel__bear {
+  max-width: min(100%, 260px);
 }
 
 .stats-grid {
@@ -421,6 +415,7 @@ select {
 
 .gift-card__media img {
   width: 100%;
+  min-height: 16rem;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 1rem;
@@ -548,11 +543,7 @@ select {
   .hero-panel__art {
     min-height: 11rem;
     order: -1;
-  }
-
-  .hero-panel__moon {
-    right: 50%;
-    transform: translateX(50%);
+    justify-content: center;
   }
 
   .stats-grid {
@@ -625,16 +616,11 @@ select {
   }
 
   .stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-panel h1 {
     font-size: clamp(1.55rem, 9vw, 2.15rem);
-  }
-
-  .hero-panel__moon {
-    width: 7rem;
-    height: 7rem;
   }
 }
 
@@ -658,14 +644,6 @@ select {
   .hero-panel__actions {
     display: grid;
     grid-template-columns: 1fr;
-  }
-
-  .hero-panel__moon {
-    position: relative;
-    top: auto;
-    right: auto;
-    transform: none;
-    margin: 0 auto;
   }
 
   .stat-pill {

@@ -8,6 +8,7 @@ import { useToast } from "primevue/usetoast";
 import GiftCard from "@/components/GiftCard.vue";
 import StatPill from "@/components/StatPill.vue";
 import { useRegistry } from "@/composables/useRegistry";
+import Image from "primevue/image";
 
 const toast = useToast();
 const { giftItems, selectedItems, totalItems, totalSelectedTypes, totalSelectedUnits, isLoading, loadRegistry, mutateSelection, getSelection } =
@@ -114,7 +115,11 @@ onMounted(async () => {
         class="hero-panel__art"
         aria-hidden="true"
       >
-        <div class="hero-panel__moon" />
+        <Image
+          class="hero-panel__bear"
+          src="/images/ursinho.png"
+          height="250"
+        />
       </div>
     </section>
 
@@ -211,7 +216,6 @@ onMounted(async () => {
         <Button
           :label="isSaving ? 'Salvando...' : 'Confirmar'"
           icon="pi pi-check"
-          severity="success"
           rounded
           :loading="isSaving"
           @click="confirmAction"

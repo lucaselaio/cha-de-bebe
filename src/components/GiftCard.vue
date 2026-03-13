@@ -91,7 +91,6 @@ const progressValue = computed(() => {
           <Button
             icon="pi pi-heart"
             label="Reservar 1"
-            severity="success"
             rounded
             :disabled="!canIncrement"
             @click="$emit('reserve')"
