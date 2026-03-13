@@ -6,18 +6,32 @@ const route = useRoute();
 const links = [
   {
     label: "Lista",
-    to: "/",
+    to: "/#presentes",
+    path: "/",
+    hash: "#presentes",
     icon: "pi pi-gift",
   },
   {
     label: "Selecionados",
     to: "/selecionados",
+    path: "/selecionados",
     icon: "pi pi-heart-fill",
   },
 ];
 
-function isActive(path) {
-  return route.path === path;
+function isActive(link) {
+  return route.path === link.path;
+}
+
+function handleLinkClick(link) {
+  if (!link.hash || route.path !== link.path) return;
+
+  requestAnimationFrame(() => {
+    document.querySelector(link.hash)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
 }
 </script>
 
@@ -48,10 +62,11 @@ function isActive(path) {
       >
         <RouterLink
           v-for="link in links"
-          :key="link.to"
+          :key="link.label"
           :to="link.to"
           class="nav-chip"
-          :class="{ 'is-active': isActive(link.to) }"
+          :class="{ 'is-active': isActive(link) }"
+          @click="handleLinkClick(link)"
         >
           <i
             :class="link.icon"

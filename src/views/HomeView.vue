@@ -10,6 +10,13 @@ import StatPill from "@/components/StatPill.vue";
 import { useRegistry } from "@/composables/useRegistry";
 import Image from "primevue/image";
 
+const eventDate = "25 de abril";
+const eventTime = "6:00 PM";
+const eventAddress = "373 Lincoln St, Marlborough, MA 01752";
+const eventMapUrl =
+  "https://www.google.com/maps/search/?api=1&query=373+Lincoln+St,+Marlborough,+MA+01752";
+const eventSummary = `${eventDate} às ${eventTime}`;
+
 const toast = useToast();
 const { giftItems, selectedItems, totalItems, totalSelectedTypes, totalSelectedUnits, isLoading, loadRegistry, mutateSelection, getSelection } =
   useRegistry();
@@ -88,13 +95,38 @@ onMounted(async () => {
 
 <template>
   <div class="page-stack">
+    <section class="section-card event-strip">
+      <div class="event-strip__intro">
+        <span class="section-card__eyebrow">Informações do evento</span>
+        <h3 class="event-strip__summary">
+          {{ eventSummary }}
+        </h3>
+        <h3 class="event-strip__summary">
+          {{ eventAddress }}
+        </h3>
+      </div>
+
+      <a
+        :href="eventMapUrl"
+        class="soft-link soft-link--alt event-strip__cta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i
+          class="pi pi-map"
+          aria-hidden="true"
+        />
+        Abrir no mapa
+      </a>
+    </section>
+    
     <section class="hero-panel">
       <div class="hero-panel__copy">
         <span class="hero-panel__eyebrow">Chá de bebê dos gêmeos</span>
         <h1>Uma lista delicada para celebrar a chegada de Felipe e Sara.</h1>
         <p>
-          Ficamos muito felizes em dividir esse momento com vocês. Escolha um presente,
-          acompanhe o que já foi reservado e ajude a montar um enxoval cheio de carinho.
+          Preparamos esta lista com muito carinho apenas como uma <b>sugestão</b> para quem desejar nos presentear.
+          O mais importante para nós é a sua presença e o carinho nesse momento tão especial.💛
         </p>
 
         <div class="hero-panel__actions">
@@ -163,9 +195,7 @@ onMounted(async () => {
           severity="secondary"
           size="small"
           variant="simple"
-        >
-          Reserve apenas 1 unidade por vez para manter a lista atualizada.
-        </Message>
+        />
       </div>
 
       <div
@@ -188,6 +218,20 @@ onMounted(async () => {
           @reserve="askConfirmation(item, 'increment')"
           @remove="askConfirmation(item, 'decrement')"
         />
+      </div>
+    </section>
+    <section class="section-card">
+      <div class="event-strip__intro footer-card">
+        <h3 class="event-strip__summary">
+          Para quem preferir, os presentes também podem ser enviados diretamente para nossa casa:
+        </h3>
+        <h3 class="event-strip__summary">
+          11 colonial rd, apt 12, Milford, MA, 01757
+          Muito obrigado por todo carinho!
+        </h3>
+        <p>
+          Lembrando, é apenas uma sugestão.🩷💙
+        </p>
       </div>
     </section>
 
