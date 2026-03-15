@@ -94,12 +94,21 @@ async function confirmAction() {
 
     if (hasAppliedChange) {
       pendingAction.value = null;
-      toast.add({
-        severity: "warn",
-        summary: "Ação concluída com instabilidade",
-        detail: "A reserva foi aplicada, mas houve falha momentânea na confirmação. Tente novamente se precisar.",
-        life: 4200,
-      });
+			toast.add({
+	      severity: action === "increment" ? "success" : "info",
+	      summary: action === "increment" ? "Reserva confirmada" : "Reserva atualizada",
+	      detail:
+	        action === "increment"
+	          ? "Obrigada por escolher um presente para os bebês."
+	          : "A quantidade reservada foi ajustada.",
+		      life: 3200,
+		    });
+      ///toast.add({
+        //severity: "warn",
+        //summary: "Ação concluída com instabilidade",
+        //detail: "A reserva foi aplicada, mas houve falha momentânea na confirmação. Tente novamente se precisar.",
+        //life: 4200,
+      //});
 
       return;
     }
