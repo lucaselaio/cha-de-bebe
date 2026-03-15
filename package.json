@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@primeuix/themes": "^1.2.3",
+    "@upstash/redis": "^1.37.0",
     "express": "^5.1.0",
     "primeicons": "^7.0.0",
     "primevue": "^4.4.1",
