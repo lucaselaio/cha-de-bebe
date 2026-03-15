@@ -1,13 +1,12 @@
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readGiftItemsById } from "./gifts-store.js";
 import {
-  decrementItemSelection,
-  incrementItemSelection,
-  readSelections,
-} from "./selections-store.js";
-import { buildRegistryResponse } from "./registry-response.js";
+  getRegistryErrorResponse,
+  getRegistryResponse,
+  releaseItem,
+  reserveItem,
+} from "./registry-service.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -16,55 +15,30 @@ const port = Number(process.env.PORT || (process.env.NODE_ENV === "production" ?
 app.use(express.json());
 
 app.get("/api/selections", async (_request, response) => {
-  const selections = await readSelections();
-  response.json(await buildRegistryResponse(selections));
+  try {
+    response.json(await getRegistryResponse());
+  } catch (error) {
+    const { statusCode, body } = getRegistryErrorResponse(error);
+    response.status(statusCode).json(body);
+  }
 });
 
 app.post("/api/selections", async (request, response) => {
-  const itemId = request.body?.itemId;
-  const giftItemsById = await readGiftItemsById();
-
-  if (!itemId || !giftItemsById[itemId]) {
-    return response.status(400).json({ message: "Item inválido." });
+  try {
+    return response.json(await reserveItem(request.body?.itemId));
+  } catch (error) {
+    const { statusCode, body } = getRegistryErrorResponse(error);
+    return response.status(statusCode).json(body);
   }
-
-  const item = giftItemsById[itemId];
-  const currentSelections = await readSelections();
-  const currentQuantity = currentSelections[itemId]?.quantity ?? 0;
-
-  if (
-    item.selectionType === "limited" &&
-    typeof item.maxQuantity === "number" &&
-    currentQuantity >= item.maxQuantity
-  ) {
-    return response.status(409).json({
-      message: `Este item já atingiu o limite máximo de ${item.maxQuantity} unidade(s).`,
-    });
-  }
-
-  const selections = await incrementItemSelection(itemId);
-  return response.json(await buildRegistryResponse(selections));
 });
 
 app.delete("/api/selections", async (request, response) => {
-  const itemId = request.body?.itemId;
-  const giftItemsById = await readGiftItemsById();
-
-  if (!itemId || !giftItemsById[itemId]) {
-    return response.status(400).json({ message: "Item inválido." });
+  try {
+    return response.json(await releaseItem(request.body?.itemId));
+  } catch (error) {
+    const { statusCode, body } = getRegistryErrorResponse(error);
+    return response.status(statusCode).json(body);
   }
-
-  const currentSelections = await readSelections();
-  const currentQuantity = currentSelections[itemId]?.quantity ?? 0;
-
-  if (currentQuantity <= 0) {
-    return response.status(409).json({
-      message: "Este item ainda não possui unidades selecionadas.",
-    });
-  }
-
-  const selections = await decrementItemSelection(itemId);
-  return response.json(await buildRegistryResponse(selections));
 });
 
 if (process.env.NODE_ENV === "production") {
