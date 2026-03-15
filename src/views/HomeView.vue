@@ -18,7 +18,17 @@ const eventMapUrl =
 const eventSummary = `${eventDate} às ${eventTime}`;
 
 const toast = useToast();
-const { giftItems, totalItems, totalSelectedTypes, totalSelectedUnits, isLoading, loadRegistry, mutateSelection, getSelection } =
+const {
+  giftItems,
+  selectionById,
+  totalItems,
+  totalSelectedTypes,
+  totalSelectedUnits,
+  isLoading,
+  loadRegistry,
+  mutateSelection,
+  getSelection,
+} =
   useRegistry();
 
 const pendingAction = ref(null);
@@ -51,11 +61,11 @@ async function confirmAction() {
   if (!pendingAction.value || isSaving.value) return;
 
   isSaving.value = true;
+  const { action, itemId } = pendingAction.value;
+  const previousQuantity = selectionById.value[itemId]?.quantity ?? 0;
 
   try {
-    const action = pendingAction.value.action;
-
-    await mutateSelection(pendingAction.value.itemId, action);
+    await mutateSelection(itemId, action);
     pendingAction.value = null;
 
     toast.add({
@@ -68,6 +78,32 @@ async function confirmAction() {
       life: 3200,
     });
   } catch (error) {
+    let hasAppliedChange = false;
+
+    try {
+      await loadRegistry(true);
+
+      const currentQuantity = selectionById.value[itemId]?.quantity ?? 0;
+      const expectedQuantity =
+        action === "increment" ? previousQuantity + 1 : Math.max(0, previousQuantity - 1);
+
+      hasAppliedChange = currentQuantity === expectedQuantity;
+    } catch {
+      hasAppliedChange = false;
+    }
+
+    if (hasAppliedChange) {
+      pendingAction.value = null;
+      toast.add({
+        severity: "warn",
+        summary: "Ação concluída com instabilidade",
+        detail: "A reserva foi aplicada, mas houve falha momentânea na confirmação. Tente novamente se precisar.",
+        life: 4200,
+      });
+
+      return;
+    }
+
     toast.add({
       severity: "error",
       summary: "Nao foi possivel concluir",
