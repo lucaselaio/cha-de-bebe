@@ -10,7 +10,7 @@ async function requestJson(url, options = {}) {
   const payload = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(payload?.message || "Nao foi possivel concluir a acao.");
+    throw new Error(payload?.message || "REQUEST_FAILED");
   }
 
   return payload;

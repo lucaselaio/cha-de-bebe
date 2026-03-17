@@ -190,6 +190,56 @@ select {
   border: 1px solid rgba(97, 98, 103, 0.08);
 }
 
+.app-header__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+.locale-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.22rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(97, 98, 103, 0.08);
+}
+
+.locale-switcher__button {
+  min-height: 2.15rem;
+  padding: 0.45rem 0.7rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--p-surface-600);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 0.22s ease,
+    color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.locale-switcher__button:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--p-primary-50), white 8%);
+  color: var(--p-primary-700);
+}
+
+.locale-switcher__button.is-active {
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--p-primary-100), white 5%),
+      rgba(255, 255, 255, 0.96));
+  color: var(--p-primary-800);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--p-primary-500), transparent 72%);
+}
+
 .nav-chip,
 .soft-link {
   display: inline-flex;
@@ -641,6 +691,10 @@ select {
     align-items: stretch;
   }
 
+  .app-header__actions {
+    justify-content: space-between;
+  }
+
   .event-strip__cta {
     width: 100%;
   }
@@ -705,6 +759,14 @@ select {
   .app-header__nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .app-header__actions {
+    align-items: stretch;
+  }
+
+  .locale-switcher {
+    align-self: flex-end;
   }
 
   .nav-chip {
@@ -780,6 +842,15 @@ select {
     grid-template-columns: 1fr;
     background: none;
     border: none;
+  }
+
+  .app-header__actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .locale-switcher {
+    align-self: flex-end;
   }
 
   .soft-link {

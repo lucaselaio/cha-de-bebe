@@ -2,22 +2,21 @@
 import { computed, onMounted, ref } from "vue";
 import Button from "primevue/button";
 import Dialog from "primevue/dialog";
+import Image from "primevue/image";
 import Message from "primevue/message";
 import ProgressSpinner from "primevue/progressspinner";
 import { useToast } from "primevue/usetoast";
 import GiftCard from "@/components/GiftCard.vue";
 import StatPill from "@/components/StatPill.vue";
+import { useI18n } from "@/composables/useI18n";
 import { useRegistry } from "@/composables/useRegistry";
-import Image from "primevue/image";
 
-const eventDate = "25 de abril";
-const eventTime = "6:00 PM";
 const eventAddress = "373 Lincoln St, Marlborough, MA 01752";
 const eventMapUrl =
   "https://www.google.com/maps/search/?api=1&query=373+Lincoln+St,+Marlborough,+MA+01752";
-const eventSummary = `${eventDate} às ${eventTime}`;
 
 const toast = useToast();
+const { getErrorMessage, getGiftName, t } = useI18n();
 const {
   giftItems,
   selectionById,
@@ -33,21 +32,29 @@ const {
 
 const pendingAction = ref(null);
 const isSaving = ref(false);
+const eventDate = computed(() => t("home.eventDate"));
+const eventTime = computed(() => t("home.eventTime"));
+const eventSummary = computed(() =>
+  t("home.eventSummary", {
+    date: eventDate.value,
+    time: eventTime.value,
+  }),
+);
 
 const modalText = computed(() => {
   if (!pendingAction.value) return "";
 
   if (pendingAction.value.action === "increment") {
-    return `Deseja reservar 1 unidade de "${pendingAction.value.itemName}"?`;
+    return t("home.confirmReserve", { itemName: pendingAction.value.itemName });
   }
 
-  return `Deseja remover 1 unidade de "${pendingAction.value.itemName}" da lista de selecionados?`;
+  return t("home.confirmRemove", { itemName: pendingAction.value.itemName });
 });
 
 function askConfirmation(item, action) {
   pendingAction.value = {
     itemId: item.id,
-    itemName: item.name,
+    itemName: getGiftName(item),
     action,
   };
 }
@@ -55,6 +62,15 @@ function askConfirmation(item, action) {
 function closeDialog() {
   if (isSaving.value) return;
   pendingAction.value = null;
+}
+
+function showActionToast(action) {
+  toast.add({
+    severity: action === "increment" ? "success" : "info",
+    summary: action === "increment" ? t("home.reserveSummary") : t("home.updateSummary"),
+    detail: action === "increment" ? t("home.reserveDetail") : t("home.updateDetail"),
+    life: 3200,
+  });
 }
 
 async function confirmAction() {
@@ -67,16 +83,7 @@ async function confirmAction() {
   try {
     await mutateSelection(itemId, action);
     pendingAction.value = null;
-
-    toast.add({
-      severity: action === "increment" ? "success" : "info",
-      summary: action === "increment" ? "Reserva confirmada" : "Reserva atualizada",
-      detail:
-        action === "increment"
-          ? "Obrigada por escolher um presente para os bebês."
-          : "A quantidade reservada foi ajustada.",
-      life: 3200,
-    });
+    showActionToast(action);
   } catch (error) {
     let hasAppliedChange = false;
 
@@ -94,29 +101,14 @@ async function confirmAction() {
 
     if (hasAppliedChange) {
       pendingAction.value = null;
-			toast.add({
-	      severity: action === "increment" ? "success" : "info",
-	      summary: action === "increment" ? "Reserva confirmada" : "Reserva atualizada",
-	      detail:
-	        action === "increment"
-	          ? "Obrigada por escolher um presente para os bebês."
-	          : "A quantidade reservada foi ajustada.",
-		      life: 3200,
-		    });
-      ///toast.add({
-        //severity: "warn",
-        //summary: "Ação concluída com instabilidade",
-        //detail: "A reserva foi aplicada, mas houve falha momentânea na confirmação. Tente novamente se precisar.",
-        //life: 4200,
-      //});
-
+      showActionToast(action);
       return;
     }
 
     toast.add({
       severity: "error",
-      summary: "Nao foi possivel concluir",
-      detail: error.message,
+      summary: t("home.actionErrorSummary"),
+      detail: getErrorMessage(error),
       life: 4200,
     });
   } finally {
@@ -130,8 +122,8 @@ onMounted(async () => {
   } catch (error) {
     toast.add({
       severity: "error",
-      summary: "Erro ao carregar",
-      detail: error.message,
+      summary: t("home.loadErrorSummary"),
+      detail: getErrorMessage(error),
       life: 4200,
     });
   }
@@ -142,7 +134,7 @@ onMounted(async () => {
   <div class="page-stack">
     <section class="section-card event-strip">
       <div class="event-strip__intro">
-        <span class="section-card__eyebrow">Informações do evento</span>
+        <span class="section-card__eyebrow">{{ t("home.eventEyebrow") }}</span>
         <h3 class="event-strip__summary">
           {{ eventSummary }}
         </h3>
@@ -150,7 +142,7 @@ onMounted(async () => {
           {{ eventAddress }}
         </h3>
         <h3 class="event-strip__summary">
-          Bethel Presbyterian Church (Salão de festas)
+          {{ t("home.eventVenue") }}
         </h3>
       </div>
 
@@ -164,29 +156,30 @@ onMounted(async () => {
           class="pi pi-map"
           aria-hidden="true"
         />
-        Abrir no mapa
+        {{ t("home.openMap") }}
       </a>
     </section>
-    
+
     <section class="hero-panel">
       <div class="hero-panel__copy">
-        <span class="hero-panel__eyebrow">Chá de bebê dos gêmeos</span>
-        <h1>Uma lista delicada para celebrar a chegada de Felipe e Sara.</h1>
+        <span class="hero-panel__eyebrow">{{ t("home.heroEyebrow") }}</span>
+        <h1>{{ t("home.heroTitle") }}</h1>
         <p>
-          Preparamos esta lista com muito carinho apenas como uma <b>sugestão</b> para quem desejar nos presentear.
-          O mais importante para nós é a sua presença e o carinho nesse momento tão especial.💛
+          {{ t("home.heroBodyStart") }}
+          <b>{{ t("home.heroSuggestion") }}</b>
+          {{ t("home.heroBodyEnd") }} 💛
         </p>
 
         <div class="hero-panel__actions">
           <a
             href="#presentes"
             class="soft-link"
-          >Ver presentes</a>
+          >{{ t("home.viewGifts") }}</a>
           <RouterLink
             to="/selecionados"
             class="soft-link soft-link--alt"
           >
-            Itens selecionados
+            {{ t("home.viewSelected") }}
           </RouterLink>
         </div>
       </div>
@@ -205,22 +198,22 @@ onMounted(async () => {
 
     <section
       class="stats-grid"
-      aria-label="Resumo da lista"
+      :aria-label="t('home.statsLabel')"
     >
       <StatPill
         icon="pi pi-gift"
         :value="totalItems"
-        label="presentes sugeridos"
+        :label="t('home.statsSuggested')"
       />
       <StatPill
         icon="pi pi-heart-fill"
         :value="totalSelectedTypes"
-        label="itens já escolhidos"
+        :label="t('home.statsChosen')"
       />
       <StatPill
         icon="pi pi-box"
         :value="totalSelectedUnits"
-        label="unidades reservadas"
+        :label="t('home.statsReserved')"
       />
     </section>
 
@@ -230,15 +223,17 @@ onMounted(async () => {
     >
       <div class="section-card__header">
         <div>
-          <span class="section-card__eyebrow">Sugestões</span>
-          <h2>Presentes para o quartinho e para o dia a dia</h2>
+          <span class="section-card__eyebrow">{{ t("home.suggestionsEyebrow") }}</span>
+          <h2>{{ t("home.suggestionsTitle") }}</h2>
         </div>
 
         <Message
           severity="secondary"
           size="small"
           variant="simple"
-        />
+        >
+          {{ t("home.suggestionsMessage") }}
+        </Message>
       </div>
 
       <div
@@ -246,7 +241,7 @@ onMounted(async () => {
         class="loading-state"
       >
         <ProgressSpinner stroke-width="5" />
-        <p>Carregando a lista com todo carinho...</p>
+        <p>{{ t("home.loading") }}</p>
       </div>
 
       <div
@@ -263,17 +258,18 @@ onMounted(async () => {
         />
       </div>
     </section>
+
     <section class="section-card">
       <div class="event-strip__intro footer-card">
         <h3 class="event-strip__summary">
-          Para quem preferir, os presentes também podem ser enviados diretamente para nossa casa:
+          {{ t("home.shippingTitle") }}
         </h3>
         <h3 class="event-strip__summary">
-          11 colonial rd, apt 12, Milford, MA, 01757
-          Muito obrigado por todo carinho!
+          {{ t("home.shippingAddress") }}
+          {{ t("home.shippingThanks") }}
         </h3>
         <p>
-          Lembrando, é apenas uma sugestão.🩷💙
+          {{ t("home.shippingReminder") }} 🩷💙
         </p>
       </div>
     </section>
@@ -284,7 +280,7 @@ onMounted(async () => {
       dismissable-mask
       :draggable="false"
       class="confirm-dialog"
-      header="Confirmar ação"
+      :header="t('home.confirmTitle')"
       @update:visible="closeDialog"
     >
       <p class="confirm-dialog__text">
@@ -293,7 +289,7 @@ onMounted(async () => {
 
       <template #footer>
         <Button
-          label="Cancelar"
+          :label="t('home.cancel')"
           severity="secondary"
           text
           rounded
@@ -301,7 +297,7 @@ onMounted(async () => {
           @click="closeDialog"
         />
         <Button
-          :label="isSaving ? 'Salvando...' : 'Confirmar'"
+          :label="isSaving ? t('home.saving') : t('home.confirm')"
           icon="pi pi-check"
           rounded
           :loading="isSaving"

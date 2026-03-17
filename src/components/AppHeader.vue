@@ -1,18 +1,20 @@
 <script setup>
 import { useRoute } from "vue-router";
+import { useI18n } from "@/composables/useI18n";
 
 const route = useRoute();
+const { locale, localeOptions, setLocale, t } = useI18n();
 
 const links = [
   {
-    label: "Lista",
+    labelKey: "header.navList",
     to: "/#presentes",
     path: "/",
     hash: "#presentes",
     icon: "pi pi-gift",
   },
   {
-    label: "Selecionados",
+    labelKey: "header.navSelected",
     to: "/selecionados",
     path: "/selecionados",
     icon: "pi pi-heart-fill",
@@ -50,31 +52,51 @@ function handleLinkClick(link) {
         </span>
 
         <span class="brand-mark__body">
-          <span class="brand-mark__eyebrow">Chá de bebê</span>
-          <strong class="brand-mark__title">Felipe e Sara</strong>
-          <span class="brand-mark__subtitle">um cantinho fofo para os gêmeos</span>
+          <span class="brand-mark__eyebrow">{{ t("header.brandEyebrow") }}</span>
+          <strong class="brand-mark__title">{{ t("header.brandTitle") }}</strong>
         </span>
       </RouterLink>
 
-      <nav
-        class="app-header__nav"
-        aria-label="Navegação principal"
-      >
-        <RouterLink
-          v-for="link in links"
-          :key="link.label"
-          :to="link.to"
-          class="nav-chip"
-          :class="{ 'is-active': isActive(link) }"
-          @click="handleLinkClick(link)"
+      <div class="app-header__actions">
+        <nav
+          class="app-header__nav"
+          :aria-label="t('header.navLabel')"
         >
-          <i
-            :class="link.icon"
-            aria-hidden="true"
-          />
-          <span>{{ link.label }}</span>
-        </RouterLink>
-      </nav>
+          <RouterLink
+            v-for="link in links"
+            :key="link.labelKey"
+            :to="link.to"
+            class="nav-chip"
+            :class="{ 'is-active': isActive(link) }"
+            @click="handleLinkClick(link)"
+          >
+            <i
+              :class="link.icon"
+              aria-hidden="true"
+            />
+            <span>{{ t(link.labelKey) }}</span>
+          </RouterLink>
+        </nav>
+
+        <div
+          class="locale-switcher"
+          :aria-label="t('header.localeLabel')"
+          role="group"
+        >
+          <button
+            v-for="option in localeOptions"
+            :key="option.code"
+            type="button"
+            class="locale-switcher__button"
+            :class="{ 'is-active': locale === option.code }"
+            :aria-pressed="locale === option.code"
+            :aria-label="t(option.nameKey)"
+            @click="setLocale(option.code)"
+          >
+            {{ option.label }}
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 </template>

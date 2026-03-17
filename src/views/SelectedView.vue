@@ -5,9 +5,11 @@ import ProgressSpinner from "primevue/progressspinner";
 import { useToast } from "primevue/usetoast";
 import SelectedGiftCard from "@/components/SelectedGiftCard.vue";
 import StatPill from "@/components/StatPill.vue";
+import { useI18n } from "@/composables/useI18n";
 import { useRegistry } from "@/composables/useRegistry";
 
 const toast = useToast();
+const { getErrorMessage, t } = useI18n();
 const { selectedItems, totalSelectedTypes, totalSelectedUnits, totalItems, isLoading, loadRegistry } =
   useRegistry();
 
@@ -17,8 +19,8 @@ onMounted(async () => {
   } catch (error) {
     toast.add({
       severity: "error",
-      summary: "Erro ao carregar",
-      detail: error.message,
+      summary: t("selected.loadErrorSummary"),
+      detail: getErrorMessage(error),
       life: 4200,
     });
   }
@@ -30,10 +32,10 @@ onMounted(async () => {
     <section class="section-card section-card--compact">
       <div class="section-card__header section-card__header--stack">
         <div>
-          <span class="section-card__eyebrow">Acompanhamento</span>
-          <h1>Itens que já ganharam dono</h1>
+          <span class="section-card__eyebrow">{{ t("selected.eyebrow") }}</span>
+          <h1>{{ t("selected.title") }}</h1>
           <p class="section-card__lede">
-            Esta página ajuda a evitar duplicidade e mostra o carinho que já começou a chegar.
+            {{ t("selected.lede") }}
           </p>
         </div>
 
@@ -41,44 +43,44 @@ onMounted(async () => {
           to="/"
           class="soft-link soft-link--alt"
         >
-          Voltar para a lista
+          {{ t("selected.backToList") }}
         </RouterLink>
       </div>
     </section>
 
     <section
       class="stats-grid"
-      aria-label="Resumo dos itens selecionados"
+      :aria-label="t('selected.statsLabel')"
     >
       <StatPill
         icon="pi pi-heart-fill"
         :value="totalSelectedTypes"
-        label="tipos já reservados"
+        :label="t('selected.statsTypes')"
       />
       <StatPill
         icon="pi pi-box"
         :value="totalSelectedUnits"
-        label="unidades confirmadas"
+        :label="t('selected.statsUnits')"
       />
       <StatPill
         icon="pi pi-gift"
         :value="totalItems"
-        label="presentes no total"
+        :label="t('selected.statsTotal')"
       />
     </section>
 
     <section class="section-card">
       <div class="section-card__header">
         <div>
-          <span class="section-card__eyebrow">Selecionados</span>
-          <h2>Presentes já escolhidos</h2>
+          <span class="section-card__eyebrow">{{ t("selected.sectionEyebrow") }}</span>
+          <h2>{{ t("selected.sectionTitle") }}</h2>
         </div>
 
         <Message
           severity="info"
           size="small"
         >
-          As datas mostram a atualização mais recente de cada presente reservado.
+          {{ t("selected.sectionMessage") }}
         </Message>
       </div>
 
@@ -87,7 +89,7 @@ onMounted(async () => {
         class="loading-state"
       >
         <ProgressSpinner stroke-width="5" />
-        <p>Buscando as reservas confirmadas...</p>
+        <p>{{ t("selected.loading") }}</p>
       </div>
 
       <div
@@ -98,8 +100,8 @@ onMounted(async () => {
           class="pi pi-heart empty-state__icon"
           aria-hidden="true"
         />
-        <h3>Ainda nao ha presentes reservados.</h3>
-        <p>Quando alguem escolher um item, ele vai aparecer aqui para manter tudo organizado.</p>
+        <h3>{{ t("selected.emptyTitle") }}</h3>
+        <p>{{ t("selected.emptyBody") }}</p>
       </div>
 
       <div

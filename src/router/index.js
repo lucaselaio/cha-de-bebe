@@ -8,7 +8,7 @@ const routes = [
     name: "home",
     component: HomeView,
     meta: {
-      title: "Lista de Presentes",
+      titleKey: "meta.home",
     },
   },
   {
@@ -16,7 +16,7 @@ const routes = [
     name: "selected",
     component: SelectedView,
     meta: {
-      title: "Itens Selecionados",
+      titleKey: "meta.selected",
     },
   },
 ];
@@ -39,10 +39,6 @@ const router = createRouter({
       behavior: "smooth"
     };
   },
-});
-
-router.afterEach((to) => {
-  document.title = `${to.meta.title || "Chá de Bebê"} | Felipe e Sara`;
 });
 
 export default router;

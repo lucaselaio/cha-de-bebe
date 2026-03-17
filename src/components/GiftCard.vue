@@ -3,6 +3,7 @@ import { computed } from "vue";
 import Button from "primevue/button";
 import ProgressBar from "primevue/progressbar";
 import Tag from "primevue/tag";
+import { useI18n } from "@/composables/useI18n";
 
 const props = defineProps({
   item: {
@@ -17,17 +18,24 @@ const props = defineProps({
 
 defineEmits(["reserve", "remove"]);
 
+const { getGiftName, t } = useI18n();
 const quantity = computed(() => props.selection.quantity ?? 0);
 const canIncrement = computed(() => !props.selection.isAtLimit);
 const canDecrement = computed(() => quantity.value > 0);
 const isLimited = computed(() => props.item.selectionType === "limited");
+const itemName = computed(() => getGiftName(props.item));
 
 const statusLabel = computed(() => {
   if (isLimited.value && typeof props.item.maxQuantity === "number") {
-    return `${quantity.value} de ${props.item.maxQuantity} reservado(s)`;
+    return t("giftCard.statusLimited", {
+      quantity: quantity.value,
+      maxQuantity: props.item.maxQuantity,
+    });
   }
 
-  return `${quantity.value} unidade(s) reservada(s)`;
+  return t("giftCard.statusStackable", {
+    quantity: quantity.value,
+  });
 });
 
 const progressValue = computed(() => {
@@ -42,7 +50,7 @@ const progressValue = computed(() => {
       <img
         v-if="item.image"
         :src="item.image"
-        :alt="item.name"
+        :alt="itemName"
         loading="lazy"
       >
       <div
@@ -51,10 +59,10 @@ const progressValue = computed(() => {
         aria-hidden="true"
       >
         <i class="pi pi-image" />
-        <span>Imagem em breve</span>
+        <span>{{ t("giftCard.imageSoon") }}</span>
       </div>
       <Tag
-        :value="isLimited ? 'Quantidade limitada' : 'Pode repetir'"
+        :value="isLimited ? t('giftCard.limitedTag') : t('giftCard.repeatableTag')"
         :severity="isLimited ? 'warn' : 'success'"
         rounded
       />
@@ -62,7 +70,7 @@ const progressValue = computed(() => {
 
     <div class="gift-card__content">
       <div class="gift-card__heading">
-        <h3>{{ item.name }}</h3>
+        <h3>{{ itemName }}</h3>
         <p>{{ statusLabel }}</p>
       </div>
 
@@ -84,13 +92,13 @@ const progressValue = computed(() => {
             class="pi pi-external-link"
             aria-hidden="true"
           />
-          Ver na loja
+          {{ t("giftCard.viewStore") }}
         </a>
 
         <div class="gift-card__actions">
           <Button
             icon="pi pi-heart"
-            label="Reservar 1"
+            :label="t('giftCard.reserveOne')"
             rounded
             :disabled="!canIncrement"
             @click="$emit('reserve')"
@@ -98,7 +106,7 @@ const progressValue = computed(() => {
 
           <Button
             icon="pi pi-minus-circle"
-            label="Remover 1"
+            :label="t('giftCard.removeOne')"
             severity="secondary"
             text
             rounded

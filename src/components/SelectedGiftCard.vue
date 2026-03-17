@@ -1,21 +1,24 @@
 <script setup>
+import { computed } from "vue";
 import Tag from "primevue/tag";
+import { useI18n } from "@/composables/useI18n";
 
-defineProps({
+const props = defineProps({
   item: {
     type: Object,
     required: true,
   },
 });
 
-function formatDate(value) {
-  if (!value) return "sem atualização registrada";
-
-  return new Date(value).toLocaleString("pt-BR", {
-    dateStyle: "short",
-    timeStyle: "short",
-  });
-}
+const { formatDateTime, getGiftName, t } = useI18n();
+const itemName = computed(() => getGiftName(props.item));
+const quantityLabel = computed(() =>
+  t("selectedGift.quantity", {
+    quantity: props.item.quantity,
+    maxQuantity: props.item.maxQuantity,
+    isLimited: props.item.selectionType === "limited",
+  }),
+);
 </script>
 
 <template>
@@ -24,7 +27,7 @@ function formatDate(value) {
       <img
         v-if="item.image"
         :src="item.image"
-        :alt="item.name"
+        :alt="itemName"
         loading="lazy"
       >
       <div
@@ -33,10 +36,10 @@ function formatDate(value) {
         aria-hidden="true"
       >
         <i class="pi pi-image" />
-        <span>Imagem em breve</span>
+        <span>{{ t("giftCard.imageSoon") }}</span>
       </div>
       <Tag
-        value="Já reservado"
+        :value="t('selectedGift.reservedTag')"
         severity="info"
         rounded
       />
@@ -44,17 +47,12 @@ function formatDate(value) {
 
     <div class="gift-card__content">
       <div class="gift-card__heading">
-        <h3>{{ item.name }}</h3>
-        <p>
-          {{ item.quantity }} unidade(s)
-          <span v-if="item.selectionType === 'limited' && item.maxQuantity">
-            de {{ item.maxQuantity }}
-          </span>
-        </p>
+        <h3>{{ itemName }}</h3>
+        <p>{{ quantityLabel }}</p>
       </div>
 
       <p class="gift-card__timestamp">
-        Atualizado em {{ formatDate(item.updatedAt) }}
+        {{ t("selectedGift.updatedAt", { date: formatDateTime(item.updatedAt) }) }}
       </p>
 
       <div class="gift-card__footer">
@@ -68,7 +66,7 @@ function formatDate(value) {
             class="pi pi-shopping-bag"
             aria-hidden="true"
           />
-          Abrir loja
+          {{ t("selectedGift.openStore") }}
         </a>
       </div>
     </div>
