@@ -326,5 +326,53 @@
     "imageUrl": "https://m.media-amazon.com/images/I/81qvuK+7nKL._AC_SL1500_.jpg",
     "selectionType": "limited",
     "maxQuantity": 2
+  },
+  {
+    "id": "canguru",
+    "name": "Canguru de bebe",
+    "storeUrl": "https://www.amazon.com/Momcozy-Baby-Carrier-Newborn-Toddler/dp/B0CLGCN5ZS/ref=sr_1_1_sspa?crid=1RM700AL69X8R&dib=eyJ2IjoiMSJ9.4_lhtdpd_s-QW8Epgs9sa7d4cXd6cCKxqmbeeo19JBN6r_ZM_OwtIpu3Xawu5ahh9hbbQkv8ZnT1193v2hmZlBDoykc8aVuR1C1kZKQuZUqj-L_6NlQfN6RKrubXe05sGToDaJ773yp3AQFssbNzRO9J2QvsY4tvnEOQTaJRUcJcXqbBffvpyLG4sslS2JBKf0JlC20Lme9dEo36PYSaIjkM9kvEoCS9lfFs_tC5YsTeBVrVUeRajx9uD-wvcy9bjmYbCzhs1p0hN-rznEqYqAzwIkQNlcaeqkB1ItZxVnI.P2ttoiNeUshd7bVEB5C9ux8NrEOnSEINCGzcf8H0G9M&dib_tag=se&keywords=PureHug%2BBaby%2BCarrier%2B-%2BErgonomic%2BCozy%2B%26%2BLightweight&nsdOptOutParam=true&qid=1774019423&sprefix=purehug%2Bbaby%2Bcarrier%2B-%2Bergonomic%2Bcozy%2B%26%2Blightweight%2Caps%2C169&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/717YbnpYRVL._SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 2
+  },
+  {
+    "id": "organizador",
+    "name": "Organizador de Mamadeiras",
+    "storeUrl": "https://www.amazon.com/SpaceAid-Bottle-Storage-Organizer-Baby/dp/B0FFML6WPH/ref=sr_1_51_sspa?crid=34A13IZIQB769&dib=eyJ2IjoiMSJ9.QM_lyTp990BqoIzVwSxtkMNVb6lTws1I-_ixJpo8LKrHatXxmPfJB4iaDcOHpnZvkeAPX03HiOAbXI4cAHXwgZEqKOVgbst7_YHDb5XmqUk.U6dW1w6m2Mg9rldBZXXxrfQSTSZRN9SUAcL6cbCypFI&dib_tag=se&keywords=babies%2Bsupplies&qid=1774019983&sprefix=baby%2Bsupplies%2B%2Caps%2C178&sr=8-51-spons&xpid=LQhJmR4gCYyHM&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGZfbmV4dA&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/71X8g2VTjCL._AC_SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "trocador",
+    "name": "Trocador Keekaroo Peanut Baby",
+    "storeUrl": "https://www.amazon.com/Keekaroo-0130009KR-0001-Peanut-Changer-Vanilla/dp/B00KSW970Y/ref=sr_1_1_sspa?crid=34A13IZIQB769&dib=eyJ2IjoiMSJ9.jHIWn-4kQLZgnUFpmNJZ8Jrx5Tz9B2VEnUB4AjfF-HgETYvRx5ttrBYJ2l1d5PissD0KdJ0tGBnzIlSGaYAI8r9iVWoI0UBxgepdT4uYZQqLHp9inOhVSqfweVljBgxUL3iP1CaZoMWyoCGh8ywBSu3f0qu2oBJiaBKIxneRngqfT36R_wswgtgGKn6Ohp0rNBpSNUNgSGw2cs3XpAFtqQWWeGs2N1HhFj709cwyFRiZBKaARhsQPw0TctvH4RiA6dpgbqRd3iQxb1BlAZNCi8sZFvcLQitLOtQjMTU4seA.RzpJw2uG9RdMuzV4jOhOPlMS2EQekId-6WhBcGNHIks&dib_tag=se&keywords=babies+supplies&qid=1774020074&sprefix=baby+supplies+%2Caps%2C178&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/31ixUZ-bRCL._SL1000_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "trocador-2",
+    "name": "Trocador de fraldas Blissful Diary",
+    "storeUrl": "https://www.amazon.com/dp/B0DF1W28C5/ref=sspa_dk_detail_1?pd_rd_i=B0DF1W28C5&pd_rd_w=vHOBs&content-id=amzn1.sym.386c274b-4bfe-4421-9052-a1a56db557ab&pf_rd_p=386c274b-4bfe-4421-9052-a1a56db557ab&pf_rd_r=8W7M1G55NGXDA8T3EQDV&pd_rd_wg=gFLn5&pd_rd_r=a6beeb72-71e1-4646-a6cc-84bffe0be8d0&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/51SF7RzHrLL._SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
+  },
+  {
+    "id": "berco",
+    "name": "Berço portátil para bebês",
+    "storeUrl": "https://www.amazon.com/BNAKKON-Bassinet-Portable-Suitable-Carrying/dp/B0D4LVPXBC/ref=sr_1_88?crid=34A13IZIQB769&dib=eyJ2IjoiMSJ9.oAUKkQANRUTcJd0xRMyzdtCRpBOrv7iJxsrUlGhFABi1v9TrIVhsjr5_UDfqJSypk1ceYlR8gCXVRAk0kjpp9It-UiVdQ2gHF8RlTwSxec3kaa1vB6b1tS4OLgOpuwhaSfkf5eWi2bhBHRkwZU8QJ8vnMqQkmXbt_CUaygyVbr4S29Q-J22XclX7U8b4WPQvgM6OYOY7bhia_HyxfUXjXBVmQ3S6vfzYKlWSMQpBEyWJMIv4I_erPWuMFb5eRtkCWfZWOu6j3MqRUhw5MIdJgqmUlOEuO-hnjabRrnoDMiY.KkLVUQaqM6zVD33XBF02x-_fOz9VSKwcQcywOKdOnqM&dib_tag=se&keywords=babies%2Bsupplies&qid=1774020388&sprefix=baby%2Bsupplies%2B%2Caps%2C178&sr=8-88&xpid=PVKs8yYlIhERu&th=1",
+    "imageUrl": "https://m.media-amazon.com/images/I/71TV5ehyswL._AC_SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 2
+  },
+  {
+    "id": "suporte-banheira",
+    "name": "Banheira para Recém Nascidos",
+    "storeUrl": "https://www.amazon.com/dp/B0DTWXK9J9/ref=sspa_dk_detail_5?psc=1&pd_rd_i=B0DTWXK9J9&pd_rd_w=3WyfF&content-id=amzn1.sym.953c7d66-4120-4d22-a777-f19dbfa69309&pf_rd_p=953c7d66-4120-4d22-a777-f19dbfa69309&pf_rd_r=3JGV2ZJHJYGV3F43M1MJ&pd_rd_wg=9Ae0v&pd_rd_r=bc2904ad-382a-4eee-bd60-c92630905f8a&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWwy",
+    "imageUrl": "https://m.media-amazon.com/images/I/61U3DpK2haL._SL1500_.jpg",
+    "selectionType": "limited",
+    "maxQuantity": 1
   }
 ]
