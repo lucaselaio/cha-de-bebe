@@ -262,5 +262,11 @@ export const giftNames = {
     colchao: "Crib mattress",
     "esterilizador-2": "Portable pacifier sterilizer",
     mantas: "Cotton blankets",
+    canguru: "Baby carrier",
+    organizador: "Bottle organizer",
+    trocador: "Keekaroo Peanut Baby changer",
+    "trocador-2": "Blissful Diary diaper changing pad",
+    berco: "Portable bassinet",
+    "suporte-banheira": "Newborn bathtub",
   },
 };
