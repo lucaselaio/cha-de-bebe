@@ -24,7 +24,7 @@ export const messages = {
     },
     home: {
       eventDate: "25 de abril",
-      eventTime: "6:00 PM",
+      eventTime: "5:00 PM",
       eventEyebrow: "Informações do evento",
       eventVenue: "Bethel Presbyterian Church (Salão de festas)",
       eventSummary: ({ date, time }) => `${date} às ${time}`,
@@ -131,7 +131,7 @@ export const messages = {
     },
     home: {
       eventDate: "April 25",
-      eventTime: "6:00 PM",
+      eventTime: "5:00 PM",
       eventEyebrow: "Event details",
       eventVenue: "Bethel Presbyterian Church (Reception hall)",
       eventSummary: ({ date, time }) => `${date} at ${time}`,
