@@ -11,9 +11,9 @@ import StatPill from "@/components/StatPill.vue";
 import { useI18n } from "@/composables/useI18n";
 import { useRegistry } from "@/composables/useRegistry";
 
-const eventAddress = "373 Lincoln St, Marlborough, MA 01752";
+const eventAddress = "420 Maple St Suite 2, Marlborough, MA 01752";
 const eventMapUrl =
-  "https://www.google.com/maps/search/?api=1&query=373+Lincoln+St,+Marlborough,+MA+01752";
+  "https://www.google.com/maps/search/?api=1&query=420+Maple+St+Suite+2,+Marlborough,+MA+01752";
 
 const toast = useToast();
 const { getErrorMessage, getGiftName, t } = useI18n();
