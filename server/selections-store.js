@@ -217,12 +217,14 @@ function createDecrementScript(redis) {
   return globalThis.__CHA_DE_BEBE_DECREMENT_SCRIPT__;
 }
 
-async function incrementItemSelectionInRedis(itemId, item) {
+async function incrementItemSelectionInRedis(itemId, item, effectiveMaxQuantity = item.maxQuantity) {
   const redis = getRedisClient();
   const script = createIncrementScript(redis);
   const updatedAt = new Date().toISOString();
   const maxQuantity =
-    item.selectionType === "limited" && typeof item.maxQuantity === "number" ? item.maxQuantity : -1;
+    item.selectionType === "limited" && typeof effectiveMaxQuantity === "number"
+      ? effectiveMaxQuantity
+      : -1;
   const result = await script.exec(
     [redisSelectionsKey, redisUpdatedAtKey],
     [itemId, updatedAt, String(maxQuantity)],
@@ -256,14 +258,14 @@ async function decrementItemSelectionInRedis(itemId) {
   return readSelectionsFromRedis();
 }
 
-async function incrementItemSelectionInFile(itemId, item) {
+async function incrementItemSelectionInFile(itemId, item, effectiveMaxQuantity = item.maxQuantity) {
   const current = await readSelectionsFromFile();
   const quantity = current[itemId]?.quantity ?? 0;
 
   if (
     item.selectionType === "limited" &&
-    typeof item.maxQuantity === "number" &&
-    quantity >= item.maxQuantity
+    typeof effectiveMaxQuantity === "number" &&
+    quantity >= effectiveMaxQuantity
   ) {
     throw new SelectionLimitReachedError(item.maxQuantity);
   }
@@ -308,14 +310,15 @@ export async function readSelections() {
   return readSelectionsFromFile();
 }
 
-export async function incrementItemSelection(itemId, item) {
+export async function incrementItemSelection(itemId, item, options = {}) {
   assertPersistentStorageAvailable();
+  const { effectiveMaxQuantity = item.maxQuantity } = options;
 
   if (shouldUseRedis()) {
-    return incrementItemSelectionInRedis(itemId, item);
+    return incrementItemSelectionInRedis(itemId, item, effectiveMaxQuantity);
   }
 
-  return incrementItemSelectionInFile(itemId, item);
+  return incrementItemSelectionInFile(itemId, item, effectiveMaxQuantity);
 }
 
 export async function decrementItemSelection(itemId) {

@@ -208,20 +208,13 @@
     "maxQuantity": 1
   },
   {
-    "id": "bolsa-maternidade-1",
+    "id": "bolsa-maternidade-mini-boxy",
     "name": "Bolsa maternidade",
-    "storeUrl": "https://www.target.com/p/boxy-diaper-backpack-cloud-island/-/A-94436166?preselect=93302868#lnk=sametab",
-    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_ad020509-d3cf-4502-aaea-593e00fe37ff?wid=1200&hei=1200&qlt=80",
+    "storeUrl": "https://www.target.com/p/mini-boxy-solid-backpack-diaper-bag-tan-cloud-island-8482/-/A-94826008?preselect=94826008",
+    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_32457042-179c-414e-a5a4-7fe5b9775e7a?wid=1200&hei=1200&qlt=80",
     "selectionType": "limited",
-    "maxQuantity": 1
-  },
-  {
-    "id": "bolsa-maternidade-2",
-    "name": "Bolsa maternidade",
-    "storeUrl": "https://www.target.com/p/boxy-diaper-backpack-cloud-island/-/A-94436166?preselect=94736062#lnk=sametab",
-    "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_6ecaa806-f5fa-4297-b531-81f4ee25d580?wid=1200&hei=1200&qlt=80",
-    "selectionType": "limited",
-    "maxQuantity": 1
+    "maxQuantity": 2,
+    "legacyIds": ["bolsa-maternidade-1", "bolsa-maternidade-2"]
   },
   {
     "id": "purificador",

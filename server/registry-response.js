@@ -8,13 +8,44 @@ function sortByUpdatedAtDesc(items) {
   });
 }
 
+function getSelectionIds(item) {
+  return [item.id, ...(Array.isArray(item.legacyIds) ? item.legacyIds : [])];
+}
+
+function getUpdatedAtTime(updatedAt) {
+  if (!updatedAt) return 0;
+
+  const timestamp = new Date(updatedAt).getTime();
+  return Number.isFinite(timestamp) ? timestamp : 0;
+}
+
+function getSelectionSnapshot(item, selections) {
+  let quantity = 0;
+  let updatedAt = null;
+
+  for (const selectionId of getSelectionIds(item)) {
+    const selection = selections[selectionId];
+    const currentQuantity = selection?.quantity ?? 0;
+
+    if (currentQuantity > 0) {
+      quantity += currentQuantity;
+    }
+
+    if (getUpdatedAtTime(selection?.updatedAt) > getUpdatedAtTime(updatedAt)) {
+      updatedAt = selection.updatedAt;
+    }
+  }
+
+  return { quantity, updatedAt };
+}
+
 export async function buildRegistryResponse(selections) {
   const giftItems = await readGiftItems();
   const selectionById = {};
   const selectedItems = [];
 
   for (const item of giftItems) {
-    const quantity = selections[item.id]?.quantity ?? 0;
+    const { quantity, updatedAt } = getSelectionSnapshot(item, selections);
     const isAtLimit =
       item.selectionType === "limited" &&
       typeof item.maxQuantity === "number" &&
@@ -31,7 +62,7 @@ export async function buildRegistryResponse(selections) {
       selectedItems.push({
         ...item,
         quantity,
-        updatedAt: selections[item.id]?.updatedAt ?? null,
+        updatedAt,
       });
     }
   }
