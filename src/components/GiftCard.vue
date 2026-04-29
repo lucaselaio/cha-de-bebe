@@ -28,7 +28,7 @@ const itemName = computed(() => getGiftName(props.item));
 
 const statusLabel = computed(() => {
   if (!isSelectable.value) {
-    return t("giftCard.unavailableMessage");
+    return t("giftCard.unavailableTag");
   }
 
   if (isLimited.value && typeof props.item.maxQuantity === "number") {

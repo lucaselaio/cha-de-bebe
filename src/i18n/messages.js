@@ -92,7 +92,6 @@ export const messages = {
       removeOne: "Remover 1",
       statusLimited: ({ quantity, maxQuantity }) => `${quantity} de ${maxQuantity} reservado(s)`,
       statusStackable: ({ quantity }) => `${quantity} unidade(s) reservada(s)`,
-      unavailableMessage: "Já ganhamos bastante desse tamanho, então ele não está disponível para reserva.",
     },
     selectedGift: {
       reservedTag: "Já reservado",
@@ -200,7 +199,6 @@ export const messages = {
       removeOne: "Remove 1",
       statusLimited: ({ quantity, maxQuantity }) => `${quantity} of ${maxQuantity} reserved`,
       statusStackable: ({ quantity }) => `${quantity} unit(s) reserved`,
-      unavailableMessage: "We already received plenty of this size, so it is no longer available to reserve.",
     },
     selectedGift: {
       reservedTag: "Already reserved",
