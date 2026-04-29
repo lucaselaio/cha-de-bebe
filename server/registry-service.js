@@ -17,6 +17,14 @@ class InvalidItemError extends Error {
   }
 }
 
+class ItemUnavailableError extends Error {
+  constructor() {
+    super("Este item não está disponível para seleção no momento.");
+    this.name = "ItemUnavailableError";
+    this.statusCode = 409;
+  }
+}
+
 function getSelectionIds(item) {
   return [item.id, ...(Array.isArray(item.legacyIds) ? item.legacyIds : [])];
 }
@@ -60,6 +68,11 @@ export async function getRegistryResponse() {
 export async function reserveItem(itemId) {
   const giftItemsById = await readGiftItemsById();
   const item = readItem(itemId, giftItemsById);
+
+  if (item.isSelectable === false) {
+    throw new ItemUnavailableError();
+  }
+
   const currentSelections = await readSelections();
   const currentQuantity = getAggregatedQuantity(item, currentSelections);
 
@@ -95,6 +108,7 @@ export async function releaseItem(itemId) {
 export function getRegistryErrorResponse(error) {
   if (
     error instanceof InvalidItemError ||
+    error instanceof ItemUnavailableError ||
     error instanceof SelectionLimitReachedError ||
     error instanceof SelectionEmptyError ||
     error instanceof StorageNotConfiguredError

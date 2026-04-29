@@ -36,6 +36,7 @@ function translateKnownError(locale, message) {
 
   const exactMatches = {
     "Item inválido.": "errors.invalidItem",
+    "Este item não está disponível para seleção no momento.": "errors.itemUnavailable",
     "Este item ainda não possui unidades selecionadas.": "errors.emptySelection",
     "Armazenamento persistente não configurado. Conecte um banco Redis na Vercel ou defina UPSTASH_REDIS_REST_URL e UPSTASH_REDIS_REST_TOKEN.":
       "errors.storageNotConfigured",

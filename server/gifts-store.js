@@ -32,6 +32,7 @@ function normalizeItem(item, index) {
     name: item.name || "Item sem nome",
     storeUrl: item.storeUrl || "",
     image: item.imageUrl || item.image || "",
+    isSelectable: item.isSelectable !== false,
     selectionType,
     maxQuantity,
     legacyIds: normalizeLegacyIds(item.legacyIds, id),

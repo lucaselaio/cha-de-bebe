@@ -44,6 +44,7 @@ export function useRegistry() {
     return (
       state.selectionById[item.id] ?? {
         quantity: 0,
+        isSelectable: item.isSelectable !== false,
         maxQuantity: item.maxQuantity,
         selectionType: item.selectionType,
         isAtLimit: false,

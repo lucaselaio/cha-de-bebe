@@ -12,6 +12,7 @@
     "name": "Fraldas descartáveis - Newborn",
     "storeUrl": "https://www.target.com/p/huggies-little-snugglers-baby-diapers-select-size-and-count/-/A-15262599?preselect=79633179#lnk=sametab",
     "imageUrl": "https://target.scene7.com/is/image/Target/GUEST_ce80e2f1-5c47-4bb6-ad11-bc9ef0e393f0?wid=1200&hei=1200&qlt=80",
+    "isSelectable": false,
     "selectionType": "stackable",
     "maxQuantity": null
   },

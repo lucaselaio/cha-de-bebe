@@ -20,12 +20,17 @@ defineEmits(["reserve", "remove"]);
 
 const { getGiftName, t } = useI18n();
 const quantity = computed(() => props.selection.quantity ?? 0);
-const canIncrement = computed(() => !props.selection.isAtLimit);
+const isSelectable = computed(() => props.selection.isSelectable !== false);
+const canIncrement = computed(() => isSelectable.value && !props.selection.isAtLimit);
 const canDecrement = computed(() => quantity.value > 0);
 const isLimited = computed(() => props.item.selectionType === "limited");
 const itemName = computed(() => getGiftName(props.item));
 
 const statusLabel = computed(() => {
+  if (!isSelectable.value) {
+    return t("giftCard.unavailableMessage");
+  }
+
   if (isLimited.value && typeof props.item.maxQuantity === "number") {
     return t("giftCard.statusLimited", {
       quantity: quantity.value,
@@ -62,8 +67,8 @@ const progressValue = computed(() => {
         <span>{{ t("giftCard.imageSoon") }}</span>
       </div>
       <Tag
-        :value="isLimited ? t('giftCard.limitedTag') : t('giftCard.repeatableTag')"
-        :severity="isLimited ? 'warn' : 'success'"
+        :value="!isSelectable ? t('giftCard.unavailableTag') : isLimited ? t('giftCard.limitedTag') : t('giftCard.repeatableTag')"
+        :severity="!isSelectable ? 'contrast' : isLimited ? 'warn' : 'success'"
         rounded
       />
     </div>

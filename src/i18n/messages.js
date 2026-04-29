@@ -86,11 +86,13 @@ export const messages = {
       imageSoon: "Imagem em breve",
       limitedTag: "Quantidade limitada",
       repeatableTag: "Pode repetir",
+      unavailableTag: "Indisponível",
       viewStore: "Ver na loja",
       reserveOne: "Reservar 1",
       removeOne: "Remover 1",
       statusLimited: ({ quantity, maxQuantity }) => `${quantity} de ${maxQuantity} reservado(s)`,
       statusStackable: ({ quantity }) => `${quantity} unidade(s) reservada(s)`,
+      unavailableMessage: "Já ganhamos bastante desse tamanho, então ele não está disponível para reserva.",
     },
     selectedGift: {
       reservedTag: "Já reservado",
@@ -103,6 +105,7 @@ export const messages = {
     errors: {
       requestFailed: "Não foi possível concluir a ação.",
       invalidItem: "Item inválido.",
+      itemUnavailable: "Este item não está disponível para seleção no momento.",
       emptySelection: "Este item ainda não possui unidades selecionadas.",
       storageNotConfigured:
         "Armazenamento persistente não configurado. Conecte um banco Redis na Vercel ou defina UPSTASH_REDIS_REST_URL e UPSTASH_REDIS_REST_TOKEN.",
@@ -191,11 +194,13 @@ export const messages = {
       imageSoon: "Image coming soon",
       limitedTag: "Limited quantity",
       repeatableTag: "Can repeat",
+      unavailableTag: "Unavailable",
       viewStore: "View in store",
       reserveOne: "Reserve 1",
       removeOne: "Remove 1",
       statusLimited: ({ quantity, maxQuantity }) => `${quantity} of ${maxQuantity} reserved`,
       statusStackable: ({ quantity }) => `${quantity} unit(s) reserved`,
+      unavailableMessage: "We already received plenty of this size, so it is no longer available to reserve.",
     },
     selectedGift: {
       reservedTag: "Already reserved",
@@ -208,6 +213,7 @@ export const messages = {
     errors: {
       requestFailed: "Unable to complete the action.",
       invalidItem: "Invalid item.",
+      itemUnavailable: "This item is not available for selection right now.",
       emptySelection: "This item does not have any selected units yet.",
       storageNotConfigured:
         "Persistent storage is not configured. Connect a Redis database in Vercel or set UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN.",
